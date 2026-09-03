@@ -815,7 +815,7 @@ const GOD_QUESTIONS = [
   }
 ];
 const ADMIN_PASS = "cbc2024";
-const SHEETS_URL = "YOUR_APPS_SCRIPT_URL";
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbyKEL_ikouku-CTN1nMqGqr7yL5g6K81E_h8jyUGaeccTvz7tXy5EtgGd8fqVYbyAWXtA/exec";
 
 async function postToSheets(record) {
   try { await fetch(SHEETS_URL, { method:"POST", mode:"no-cors", headers:{"Content-Type":"application/json"}, body:JSON.stringify(record) }); } catch(e) { console.warn(e); }
