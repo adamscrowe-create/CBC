@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discipleship Growth Survey — Chesterfield Baptist Church</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple-50: #EEEDFE;
+    --purple-100: #CECBF6;
+    --purple-600: #534AB7;
+    --purple-800: #3C3489;
+    --purple-900: #26215C;
+    --teal-50: #E1F5EE;
+    --teal-600: #0F6E56;
+    --teal-800: #085041;
+    --coral-50: #FAECE7;
+    --coral-600: #993C1D;
+    --blue-50: #E6F1FB;
+    --blue-600: #185FA5;
+    --gray-50: #F7F6F3;
+    --gray-100: #EDEDEA;
+    --gray-200: #D5D4CE;
+    --gray-400: #9A9993;
+    --gray-600: #5C5B57;
+    --gray-800: #2E2D2A;
+    --text: #1A1917;
+    --text-2: #5C5B57;
+    --text-3: #9A9993;
+    --border: rgba(0,0,0,0.1);
+    --border-2: rgba(0,0,0,0.18);
+    --bg: #F7F6F3;
+    --surface: #FFFFFF;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  html { font-size: 16px; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .shell {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .logo-mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-img { width: 44px; height: 44px; object-fit: contain; }
+  .logo-text-wrap { display: flex; flex-direction: column; line-height: 1.2; }
+  .logo-line1 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #C04E1A;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .logo-line2 {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2E6E8E;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .admin-link {
+    font-size: 12px;
+    color: var(--text-3);
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: inherit;
+  }
+  .admin-link:hover { color: var(--text-2); }
+
+  /* Progress */
+  .progress-wrap { margin-bottom: 2rem; }
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-3);
+    margin-bottom: 6px;
+  }
+  .progress-track {
+    height: 3px;
+    background: var(--gray-200);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--purple-600);
+    border-radius: 99px;
+    transition: width 0.4s ease;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Category tag */
+  .cat-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+  }
+  .cat-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 3px 9px;
+    border-radius: 99px;
+  }
+  .tag-out { background: var(--coral-50); color: var(--coral-600); }
+  .tag-in  { background: var(--blue-50);  color: var(--blue-600); }
+  .tag-up  { background: var(--purple-50); color: var(--purple-800); }
+  .cat-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-2);
+  }
+
+  /* Question */
+  .q-text {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Choice buttons */
+  .choice-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: var(--bg);
+    border: 0.5px solid var(--border-2);
+    border-radius: var(--radius-sm);
+    padding: 0.875rem 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, transform 0.1s;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  .choice-btn:hover {
+    border-color: var(--purple-600);
+    background: var(--purple-50);
+    transform: translateY(-1px);
+  }
+  .choice-btn:active { transform: scale(0.99); }
+  .choice-btn .label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--purple-600);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .choice-btn .desc {
+    font-size: 13px;
+    color: var(--text-2);
+    line-height: 1.5;
+  }
+
+  /* Nav */
+  .nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.75rem;
+  }
+  .back-btn {
+    font-size: 13px;
+    color: var(--text-3);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0;
+  }
+  .back-btn:hover { color: var(--text-2); }
+  .area-counter { font-size: 12px; color: var(--text-3); }
+
+  /* Intro */
+  .intro-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--purple-600);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .intro-title {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+  .intro-body {
+    font-size: 14px;
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+  .areas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 1.75rem;
+  }
+  .area-chip {
+    font-size: 11px;
+    padding: 5px 8px;
+    border-radius: var(--radius-sm);
+    background: var(--gray-100);
+    color: var(--text-2);
+    text-align: center;
+    line-height: 1.4;
+  }
+  .name-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .name-input {
+    flex: 1;
+    font-size: 14px;
+    font-family: inherit;
+    padding: 0.625rem 0.875rem;
+    border: 0.5px solid var(--border-2);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+  }
+  .name-input:focus { border-color: var(--purple-600); box-shadow: 0 0 0 3px var(--purple-50); }
+  .name-input::placeholder { color: var(--text-3); }
+  .field-group { margin-bottom: 0.875rem; }
+  .field-label { font-size: 12px; font-weight: 500; color: var(--text-2); margin-bottom: 4px; display: block; }
+  .field-label .req { color: #C04E1A; margin-left: 2px; }
+  .field-select, .field-input {
+    width: 100%;
+    font-size: 14px;
+    font-family: inherit;
+    padding: 0.625rem 0.875rem;
+    border: 0.5px solid var(--border-2);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'8\' viewBox=\'0 0 12 8\'%3E%3Cpath d=\'M1 1l5 5 5-5\' stroke=\'%239A9993\' stroke-width=\'1.5\' fill=\'none\' stroke-linecap=\'round\'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.875rem center;
+    cursor: pointer;
+  }
+  .field-select:focus, .field-input:focus { border-color: var(--purple-600); box-shadow: 0 0 0 3px var(--purple-50); }
+  .field-input { background-image: none; cursor: text; }
+  .fields-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .field-error { font-size: 11px; color: #C04E1A; margin-top: 3px; display: none; }
+  .field-error.show { display: block; }
+  .demo-section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--text-3); text-transform: uppercase; margin: 1.25rem 0 0.75rem; }
+  .start-btn {
+    width: 100%;
+    padding: 0.875rem;
+    background: var(--purple-600);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s;
+    letter-spacing: -0.01em;
+  }
+  .start-btn:hover { background: var(--purple-800); }
+
+  /* Review screen */
+  .review-title {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+  .review-subtitle {
+    font-size: 13px;
+    color: var(--text-2);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  .review-area {
+    border-bottom: 0.5px solid var(--border);
+    padding: 1rem 0;
+  }
+  .review-area:last-child { border-bottom: none; }
+  .review-area-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.35rem;
+  }
+  .review-area-left { display: flex; align-items: center; gap: 8px; }
+  .review-area-name { font-size: 14px; font-weight: 500; color: var(--text); }
+  .stage-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--purple-800);
+    background: var(--purple-50);
+    padding: 2px 8px;
+    border-radius: 99px;
+  }
+  .edit-btn {
+    font-size: 11px;
+    color: var(--purple-600);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: underline;
+  }
+  .pip-row {
+    display: flex; gap: 3px; margin-bottom: 0.35rem;
+  }
+  .pip {
+    height: 5px; flex: 1; border-radius: 99px;
+    background: var(--gray-200);
+  }
+  .pip.on { background: var(--purple-600); }
+  .review-stage-desc {
+    font-size: 12px;
+    color: var(--text-2);
+    line-height: 1.5;
+    padding-left: 0;
+  }
+  .submit-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    flex: 1;
+    padding: 0.8rem;
+    background: var(--purple-600);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    min-width: 140px;
+  }
+  .btn-primary:hover { background: var(--purple-800); }
+  .btn-secondary {
+    flex: 1;
+    padding: 0.8rem;
+    background: var(--surface);
+    color: var(--text-2);
+    border: 0.5px solid var(--border-2);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    cursor: pointer;
+    font-family: inherit;
+    min-width: 140px;
+  }
+  .btn-secondary:hover { background: var(--gray-100); }
+
+  /* Report */
+  .report-header {
+    border-bottom: 0.5px solid var(--border);
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .report-name {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+  .report-meta { font-size: 12px; color: var(--text-3); }
+  .summary-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 1.5rem;
+  }
+  .summary-card {
+    background: var(--gray-100);
+    border-radius: var(--radius-sm);
+    padding: 0.875rem;
+    text-align: center;
+  }
+  .summary-label { font-size: 10px; color: var(--text-3); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .summary-val { font-size: 18px; font-weight: 600; color: var(--text); }
+  .summary-sub { font-size: 11px; color: var(--text-2); margin-top: 2px; }
+  .report-area {
+    padding: 1rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .report-area:last-child { border-bottom: none; }
+  .report-area-head {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;
+  }
+  .report-area-name { font-size: 15px; font-weight: 500; color: var(--text); }
+  .report-stage-name { font-size: 12px; color: var(--text-3); margin-bottom: 6px; }
+  .report-pip-row { display: flex; gap: 4px; margin-bottom: 6px; }
+  .report-pip { height: 7px; flex: 1; border-radius: 99px; background: var(--gray-200); }
+  .report-pip.on { background: var(--purple-600); }
+  .report-stage-desc {
+    font-size: 13px;
+    color: var(--text-2);
+    line-height: 1.6;
+    border-left: 2px solid var(--purple-100);
+    padding-left: 0.75rem;
+  }
+  .tab-btn {
+    padding: 0.45rem 1rem;
+    font-size: 13px;
+    font-family: inherit;
+    border: 0.5px solid var(--border-2);
+    border-radius: 99px;
+    background: var(--bg);
+    color: var(--text-2);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .tab-btn.active {
+    background: var(--purple-600);
+    color: #fff;
+    border-color: var(--purple-600);
+  }
+  .action-bar {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1.75rem;
+  }
+  .btn-icon {
+    display: flex; align-items: center; gap: 6px;
+    padding: 0.625rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  .btn-print {
+    background: var(--purple-600); color: #fff; border: none;
+  }
+  .btn-print:hover { background: var(--purple-800); }
+  .btn-copy {
+    background: var(--surface); color: var(--text-2); border: 0.5px solid var(--border-2);
+  }
+  .btn-copy:hover { background: var(--gray-100); }
+  .btn-restart {
+    background: none; color: var(--text-3); border: none; font-size: 13px; cursor: pointer; font-family: inherit;
+  }
+  .btn-restart:hover { color: var(--text-2); }
+
+  /* Admin */
+  .admin-header { margin-bottom: 1.5rem; }
+  .admin-title {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  .admin-meta { font-size: 13px; color: var(--text-2); }
+  .admin-bar {
+    display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap;
+  }
+  .agg-area { margin-bottom: 1.5rem; }
+  .agg-area-name {
+    font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 0.5rem;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .agg-bar-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 3px; }
+  .agg-stage-label { font-size: 11px; color: var(--text-3); width: 80px; flex-shrink: 0; }
+  .agg-bar-outer { flex: 1; height: 12px; background: var(--gray-200); border-radius: 99px; overflow: hidden; }
+  .agg-bar-inner { height: 100%; background: var(--purple-600); border-radius: 99px; min-width: 2px; }
+  .agg-count { font-size: 11px; color: var(--text-3); width: 30px; text-align: right; flex-shrink: 0; }
+  .respondent-list { margin-top: 1.5rem; }
+  .respondent-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.6rem 0;
+    border-bottom: 0.5px solid var(--border);
+    font-size: 13px;
+  }
+  .respondent-row:last-child { border-bottom: none; }
+  .respondent-name { font-weight: 500; color: var(--text); }
+  .respondent-date { color: var(--text-3); font-size: 11px; }
+  .respondent-stages { color: var(--text-2); font-size: 11px; }
+  .admin-pass-wrap { margin-bottom: 1rem; display: flex; gap: 8px; }
+  .admin-pass-input {
+    flex: 1; font-size: 14px; font-family: inherit;
+    padding: 0.625rem 0.875rem;
+    border: 0.5px solid var(--border-2); border-radius: var(--radius-sm);
+    background: var(--bg); color: var(--text); outline: none;
+  }
+  .admin-pass-input:focus { border-color: var(--purple-600); }
+
+  /* Toast */
+  .toast {
+    position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+    background: var(--gray-800); color: #fff;
+    font-size: 13px; padding: 0.6rem 1.2rem; border-radius: 99px;
+    opacity: 0; transition: opacity 0.2s; pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast.show { opacity: 1; }
+
+  /* Divider */
+  .divider { border: none; border-top: 0.5px solid var(--border); margin: 1.25rem 0; }
+
+  /* Section title */
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.07em; color: var(--text-3);
+    text-transform: uppercase; margin-bottom: 0.75rem;
+  }
+
+  /* Print styles */
+  @media print {
+    body { background: #fff; padding: 0.5rem; }
+    .action-bar, .site-header .admin-link, .btn-restart { display: none !important; }
+    .card { border: 0.5px solid #ccc; box-shadow: none; }
+    .report-pip.on { background: #534AB7 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <header class="site-header">
+    <div class="logo-mark">
+      <img class="logo-img" src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAFcAVwDASIAAhEBAxEB/8QAHAABAAMBAQEBAQAAAAAAAAAAAAYHCAUEAgMB/8QAWRAAAQMDAQQDBwsQCAUEAwEAAQACAwQFEQYHEiExQVFhCBMicYGRoRQVMjdCVmJ0k7HRFhcYIzZSVXJ1gpSisrPB0iQzNUNUc5LCNGNkg7QlU8PhRUZ2o//EABsBAQACAwEBAAAAAAAAAAAAAAADBQIEBgEH/8QAOxEAAQMCAwQHCAICAQUBAQAAAQACAwQRBRIhBjFBURNhcYGRodEUIjIzscHh8CNSFfFCFjQ1csJDov/aAAwDAQACEQMRAD8A2WiIiIiIiIiIiIiIiIiIiIiL8a2qpqGkkq6yeOngibvSSSODWtHWSV4SALlegEmwX7Ln36+Wmw0Lq273CnooBydK/G92Ac3HsCp7aBtxZGZKHR8LZDyNfO3wRx9ww8/GeHYqUu90ud7uBq7nWVFdVPOA+VxcfEB0eILnq7aGGE5IRmPl+f3VdPh+zE84D5zkby4/jv8ABXVq/bzG0vp9L2wycx6qrOA8bWDifKR4lU+p9Zan1K/F3u9RPGTwgYdyL/Q3gfLlS3QuxvUV+EdXds2ahdx+2tzM8djOjxu8yvHR2zzSul2tfQW5ktUOdVUfbJSewng3yAKuZS4liesrsrT3eXqrJ9ZhWFe7C3O8d/nw7lnPS2zPWOoQyWmtT6WmdxE9Z9qbjrAPhHyBWZp/YFRRhsl9vk87vdRUjBG3/U7JPmCuxFb02z9JFq8Zj1+ipqraWtm0Yco6vU/ayh9m2ZaHtW6YLBTTSN93U5mJ/wBWQpVS0tNSR97paeGBn3sbA0eYL9kVvFBFELRtA7AqSWolmN5HE9pui+JXSNHgRF/5wC+0UqhXikrKuPJNrnkH/LkYT6XBeOTUNPAT6rt91p2jm40T3tHlZvLsovbjksSDwK4cOodL3X+jC6W6dx4d4le0P/0O4+heC87OtE3YOdVaeomvd/eQN707zswu9dLTa7rF3q526krWYxuzwteB5wo3PoGjpiZNOXi76fk5htLUl8Ge2KTebjxYWEkEEws8X7RdZx1FRAbxm3Ybfvio99aSWzVDqvRerLpZpefepCJYnHqI4ZHjyvTFqHaLpo7uptOx32ibnNbaP6wDrMR5+TC9dRcdpGnfCrLXQ6rom85aD+j1QHWYnZa4/ildDTG0XS1+qfULK11BcgcOoa9hgmaerDufkJWt/i2xjNAS3sNx4H8Lb/zBlOWpaHdose5wsfMrpaV1bYNTQl1pr2SSs/rKd/gTRnqcw8R8y7i4Go9H2C/Stqauj71Ws4x1tM4w1EZ6w9vHz5C5sTtXaa8Gp39UWsH+sY0Mrom9rR4M3kw7sK9EssekouOY+43juuhihl1hNjyP2O499u9TFF4bLdrfeKMVduqWTR53XAcHMd0tc08WuHUQCvctlrg4XB0Wq5pabOFiiIi9WKIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIir/aztKoNHUxoqUNq7zKzMcOfBiB5Pk7Oocz2Dioaiojp4zJIbAKemppamQRxC5K7WvtbWXRtuNRcZg+pe0mCkjP2yU9nUPhHh8yzLr/Xd91lWF1wm7zRNdmGjiOI2dp++d2nyYXCvV0uF6uUtyulXJV1cx8OR54nqA6gOgBTzZNsurtWPjudz75R2UHIcOElR2M6h8LzLiaqvqsVl6GEWby+5/bLvqTDaTB4unnN3c/s0fpUY0To6+avuHqa002Y2ECapk4RRDtPSewcVo/Z5sy0/pFjKkRivuYHhVczRlp+A3k0entUtstrt9mt0VutdJFS0sQwyOMYHj7T2nivYuiw7BYaQB7/AHn8+XZ6rmMUx+etJYz3WcuJ7fRERFdKhRERERERERERERF4LVebXdKisgt1bFVPopBFUd7OQx5Gd3PLOOrkvevSLb14CDuREReL1FH9YaM05qym71erbFM8DwJ2+DLH2teOP8FIEXoJabheOaHCxCp+qt20fZz9usdXJqzT8fF1HU8amFvwXDicdmfxVL9AbR9N6xYIaOoNLcQPtlDUeDK0jnjocPF5QFMVXe0rZXadUPddLY8Wi+sO+yrhy0SOHLfA6fhDj41MHsk0foefqtYxyRax6jkfsVLbnYqepq/XGjlfb7kBj1VCBl4+9kbykb2HiOghfpQXCdsjaO7QspqonDHMJMU/a0nkfgnj4xxVRaU2n33SV4GltptPIxzcCK4huct5BzscHt+GOPWFdDHUdxomSMdFU00rQ9jmkOa4cwQR6CFBJTGJ1xx8CtqKrbM3KeHiF6EX5wsdEwRue6QDgHOPHyr9ECFERERERERERERERERERERERERERERERERERRbaZrGk0ZpySvl3JauTLKSnJ4yPx09O6OZP0qOWVkLC95sApYYXzSCOMXJXH2xbRIdG25tHRbk15qmEwsPFsLeXfHj5h0kdQWXa+rqq+tmra2eSoqZnl8sshy57j0lfreblW3e6VFzuE7p6qoeXyPceZ6h1AcgOgKfbEtnjtV3H11ukRFlpX4cDw9UvHuB8EdJ8i4GqqZ8XqQxg04Dl1lfR6Slp8FpTJIdeJ59Q/etdDYrsvdqB8V/v8JbaGneggdwNUes/A+fxLR0MccMTIomNjjY0Na1owGgcgB0BIo44omRRMayNjQ1rWjAaByAHUvpdnh+Hx0UeRm/iea4TEsSlr5c793AckREW+q5ERERERERERc7U1z9ZtO3G7d5796jppJ+972N/daTjPRyXoFzZeE2Fyv1vV1t1mtstxulXFSUkIy+WR2AOztPYOKzftV2zXG/99tWmzNbrWctfP7Gecf7G9g4np6lBtd60vus7j6ru9T9qacw0sZIihHYOk/CPFRxWkFIGau1Ko6mvdJ7rNAtHdyZ9zF6+PN/dhXUqV7kv7mL18eb+7CupaNT80qzovkNRERQLaREREREREXA1zpGzaws7rddqcOxkwzt4SQu++afnHI9Koy0XrVOxXUjbLemvuGnqhxdFu+xLc8XxZ9i4dLP/AKK0kuNrHTVr1XYprRdoBJFIMseB4cT+h7T0Ef8A0p4pcvuu1ataeDOc7NHD91XrsN2t18tUF0tdUyppJ27zHt9II6COkHkvcsu2W6ai2K65ktVya+qtNQ4OexvsZo84EsfU8ciPIegrS9muVFd7XT3O3VDKilqGB8UjDwIP8ezoXk0PR6jUFKeo6UEHRw3hetERQrZREREREREREREREREREREREREREREXnudbS223z19bM2Gmp4zJK9x4NaBklZC2j6sqtY6mmuk4McDftdLCf7qIHgPGeZ7fErK7pXWJlqI9IUEw73HiWvLXc3c2RnxeyP5qpJjXPe1jGlznEBrQMkk8gFxG0GImWT2dh0bv6z+Pqu/2awwQxe0yD3nbuofn6KQ7O9K1esNTQWqn3o4f6ypmAyIoxzPjPIdpWvLNbaOz2untlvgbBS07AyNg6AP49JPWopsc0azSGlY452D1yq8TVjukHHBniaOHjypsr3BcOFJDmcPfdv6ur1XPY9ihrZ8jD7jd3X1+nUiIiulQoiIiIiIiIiIiIo7tM9rzUP5Nn/YKkSju0z2vNQ/k2f8AYKyZ8QWEnwHsWKRyCIOQRX65VaO7kv7mL18eb+7CupUr3Jf3MXr48392FdSpan5pXR0XyGoiIoFtIiIiIiIiIiIiKKbUNF0WttNyW+fdiq48yUdQRxikx+yeRH0Ki9j2tK/Z9qufS2ow+C3SVBjnY8/8JLy3x8E8M9mCtPqle6X0MK+2fVfboc1dGwNrWtH9ZCOT/G35vEtqnkB/jfuK0auIg9NHvHmFdLHNc0OaQWkZBB4Ff1Ux3NmuzdLb9SVzmzW0UeaN7jxlhHue0t+bHUrnUMkZjcWlbMMolYHBERFGpUREREREREREREREREREREXI1lfabTWmq69VRBbTRlzWZ9m88Gt8pwF11QPdQaj79X0GmKeXLIB6pqmg+7PBjT4hk/nBaGJVfslM6Tjw7VY4VRe21TYuG89g/bKm7lWVNxuFRX1khkqKiV0srz0ucclWV3O2kxe9UuvVXHvUVrIc3I4PnPsR+aPC8yq5oLnBrWlzicADmT1LYOy7TbdLaLobY5gFSW9+qj1yu4u83AeRcfgVH7VVZ36hup7eHqu42hrfZKTo2aF2g7OPp3qUIiLv182RERERERERERERERERR3aZ7XmofybP+wVIlHdpnteah/Js/wCwVkz4gsJPgPYsUjkEQcgiv1yq0d3Jf3MXr48392FdSpXuS/uYvXx5v7sK6lS1PzSujovkNRERQLaRERERERERERERfE8Uc8D4ZmNkjkaWva4ZDgRggr7REWQdb2qv2Z7Tt+2udG2nlFXb3nk6In2J68cWFap0hfaTUmm6G90R+01UQfu54sdyc09oOR5FX3dL6YF40UL1Txb1XaXd8JA4uhdwePJwd5Cod3LGqTBcqvSVVJ9qqAamkBPJ49m0eMYP5pW/J/NCH8QquI+zVBj4O3LQ6Ii0FaIiIiIiIiIiIiIiIiIiIiL86qaOmppaiZwZFEwve49DQMk+ZYu1beJL/qa43mXINXUOkaCc7reTR5GgBaa28Xj1o2a3HcduzVm7SR/nnwv1Q5ZRXG7T1F3shHDVd1slS2jfOeOg7t/71Kb7ELAL/tCoWSs36ai/pcwIyMMxug+NxatZKmu5bs4gsNzvkjBv1U4gjJ57kYyfO53oVyq3wCm6GkDjvdr6Kk2kqunrS0bm6ev71IiIrtUCIiIiIijuvtY2fRdpjuN3MzmyyiKKKFodI88zgEjgBxK9a0uNgsXODRc7lIkVR/ZAaO/wF6+QZ/On2QGjv8BevkGfzqX2eX+qh9rh/sFbiKo/sgNHf4C9fIM/nT7IDR3+AvXyDP509nl/qntcP9grcUd2me15qH8mz/sFQX7IDR3+AvXyDP51ytYbbtKXjSt1tVNRXds1XSSwxl8LA0Oc0gZ8LlxWTKeQOBssH1UJaQHLPA5BERXK51aO7kv7mL18eb+7CupZg2HbSbHoizXCju1PXyyVNSJWGnja4ABoHHLhx4Kw/sgNHf4C9fIM/nVVUQSOkJAV7S1MTImhztVbiKo/sgNHf4C9fIM/nT7IDR3+AvXyDP51D7PL/VbHtcP9grcRVH9kBo7/AAF6+QZ/On2QGjv8BevkGfzp7PL/AFT2uH+wVuIqj+yA0d/gL18gz+dPsgNG/wCAvXyDP509nl/qntcP9grcReW0Vnrja6au9Tz0wqImyCKYAPYCMgOAJwexepQrYBvqiIiIvyraeGro5qWoYHwzRujkaeTmkYI8xWL6ptboPaHI2In1RZ6/LD9+1pyPI5h9K2qsy91NZhRa1pLvG3DLjTYecc5Izg/qlvmW7RO94tPFV2Is9wPG8LSNrrYLlbaa4Urt6CphbNGetrgCPnXpVX9zTfDdNnTKCR+9Na5nU569w+Ez0EjyK0FqyMyOLVuwydIwO5oiIsFIiIiIiIiIiIiIiIiIqK7qq48bHaGu/wDcqXjPia3/AHKis4GepWR3Rtd6r2lzwB2W0dNFDzPAkF5/aHJV9b6d1ZX09I3i6eVkQ/OcB/FfN8XkM1a+3O3hovqeCxCHD4weV/HVa72T2z1o2d2SjLQ15pWyv/Gf4Z/aUoXxTxMhgZDGMMY0NaOwDC+19EhjEUbWDgAF8xnlMsrpDxJPiiIikUSIiIi/j3NYwve4Na0ZJJwAFkDbRrJ2sdYSz07ybbR5go254ObnwpPG4+gBXH3SWtfWXTzdOUEuK+5sPfS08YoOR8rvYjs3lmRWVFDYZyqfEai56Md6IiKwVUiIiIiIiIiIiIiIiIiIiIiIiIisruf9F/VRq0V9bFvWu2FssuRwlk9wz/cewdqr23UdTcK+noKKF01TUSNiijbzc4nAC2ds50vTaQ0lR2aDddIxu/USgf1sp9k7+A7AFq1U3RssN5W7Q0/SvudwUiREVOugRERERVF3U9tFToKluIbl9DWsOeprwWn07qt1Q7bXRer9lt/h3cltKZW+NhDv4KWF2WQFQ1Lc0Th1Kne5SuvqfVtztLn4ZWUglaOt8bvocfMtJrHWxKvNv2p2KYOw2WcwO8UjS35yFsVT1rbSX5rVw194rciiIi01YIiIiIiIiIiIiIh5IiIsf7XKk1W0vUEpkMgbWOjBPQGANx5MYXn2Z04qtoVggIyDXxE+IHe/gvjaN7YGofylP+2V0tizQ/alYQeidx8zHFfMx79drxf919YP8eHacGf/ACtcog5Ivpi+ToiIiIiIiKpNX7FItT6irL3cNU1vfql+Q0UzN2No4NYOPIDguT9jtbPfPXfozPpV4opxUygWBWsaOEm5b9VR32O1s989d+jM+lPsdrZ75679GZ9KvFF77VLzXnsUH9fqqO+x2tnvnrv0Zn0p9jtbPfPXfozPpV4ontUvNPYoP6/VUd9jtbPfPXfozPpXN1TsJt9m03crszUVZM6jpZJ2xup2AOLWk4Jz2LQaju0z2vNQ/k2f9grJlTKXAXWD6OANJDVilEHIIrdc+rN2O7MaTXlqrq2ou9RQupagRBscTXBwLQc8T2qdfY7Wz3z136Mz6V+/cl/cxevjzf3YV1KrnqJGyEAq7paWF8Qc4aqjvsdrZ75679GZ9KfY7Wz3z136Mz6VeKKL2qXmtj2KD+v1VHfY7Wz3z136Mz6U+x2tnvnrv0Zn0q8UT2qXmnsUH9fqqz2c7HrTo/UIvXrlUXGeOMsgEsTWiMngXDHM4yPKVZiIonvc83cVNHEyMWaLIiIsFIiIiIi5WsIRU6SvFORnvlDM3zsK6q8d7ANmrQRkGnk/ZK9bvWLtxWI9LVJo9RWmrBwYayB+fE9q3QFgmmcWSRPHNrmkeQhb0iOY2k9IC368atKq8LOjh2L6REVerZERERERERERERERDyRFjTaN7YGofylP+2V09ih3dqViJOPt7h//AJuXg2nQug2i6hjcQT64Su4fCO8PQV97LJxTbR9Pyk4Hq6Np/O8H+K+ZsOWuBPB/3X1h4zYeQOLP/lbEHJECL6Yvk6IiIiIiIiIiIiIiIiIiIiKO7TPa81D+TZ/2CpEo7tM9rzUP5Nn/AGCsmfEFhJ8B7FikcgiDkEV+uVWju5L+5i9fHm/uwrqVK9yX9zF6+PN/dhXUqWp+aV0dF8hqIiKBbSIiIiIiIiIiIiIiIiLnapkEOmbpMTgR0czvMwroqLbXKz1Ds01BU5wRQyMHjcN0fOsmC7gFhIbMJWMYASYwOZLQPQt6w8ImD4I+ZYWsNOam+W6laMmWqijA8bwFusLer/8AiqzCx8Xd90REVerZEREREREREREREKIiLKG3qj9R7UrrhrWtnEU4wOe8wAnx5BUQs1UaG8UVaDg09THL/pcD/BWv3U1uMOpbTcw07tTSuhJ+Ex2fmeqcIyCOvgvmmJsMNbIOu/jqvq2EyCegjJ5W8NFuiN7Xt3mkEHiD6V9KM7N7qLrpGz1ZOXT0Ebic83N8B/pAUmX0iN4kYHjiLr5ZLGY3uYd4JHgiIizWCIiIiIiIiIiIiIiIiKO7TPa81D+TZ/2CpEo7tM9rzUP5Nn/YKyZ8QWEnwHsWKRyCIOQRX65VaO7kv7mL18eb+7CupUr3Jf3MXr48392FdSpan5pXR0XyGoiIoFtIiIiIiIiIiIiIiIiIqu7py4+o9mb6UOw+uq4ocdbQS8/sq0VnXusLwJr3aLFG4EU0LqmQDoc87rc+Rp86npm5pQtWtfkhcq92P0JuG07T9Pu7wbWNld4mAv8A4LZizF3LVsNXr2quTmncoKJ2Dj3chDR6A5adUta68luShw1toieZRERaasERERERERERERERERFVndMWk1uhIrkxuX26qa9x+A/wHektPkWaVtfVNqjvenLhaJcBtXTviyegkcD5DgrFlVBNS1MtNUMLJoXujkaRxa5pwR5wuI2lp8k7ZRucPMfiy+gbKVOemdCd7T5H83V89z7fAdIep5H8bVcA1+Tygn4A+IP4+RXYsqbDLnFS6xdaKt+7SXqnfRSdjiMsI7c5HlWlNI3CW4WVhqiPVtM91NVjqlYd1x8vBw7HBdBgVR09E0cW6enkuZ2ipvZ8QdyfqPv5rroiK3VKiIiIiIiIiIiIiIiIiju0z2vNQ/k2f9gqRKO7TPa81D+TZ/2CsmfEFhJ8B7FikcgiDkEV+uVWju5L+5i9fHm/uwrqVK9yX9zF6+PN/dhXUqWp+aV0dF8hqIiKBbSIiIiIiIiIiIiIiIi/jiGtLiQAOZPQsV7TL79Umu7td2vLoZZyyD/KZ4LfQM+VaY276mGmtn1YYZNytr/6JTdYLh4TvI3Plwsl26jqLhX09vpGF89RI2GJo6XOOB86saFlgXlVGJSXIjC0r3LdkNBoepu8jC2S51JLSRzjj8Fvp3lbi52mbVBY9PUFnpwO9UdOyEEdOBgnynJ8q6K0pX53lysoI+jjDeSIiKNSoiIiIiIiIiIiIiIiIsu90Lp11l15JXxtxS3VvqhpA4CQcJB58O/OWolBNuGlfqn0VMaePer6DNTTYHF2B4bPK30gKpxqk9qpSG7xqP3sVzgVaKSsaXH3XaHv/KyrTTS01TFUwPLJoniSNw5tcDkHzhaf0pqOGW6Wm/x4ZbtUQtimA5Q3CNuMHq32gt8bG9ay2rQ2LV8N2obloGvqDC24D1RbZs8YKpnEFvUfBDvzT1rm9nK0QVPRPPuv07+C6ramgNTSdKwe8zXu4rTSKM7OtRS36yvjuDBBeLfKaS5QfeTN90PguHhDx9iky7tzS02K+dNcHC4REReLJERERERERERERFHdpnteah/Js/7BXcqKqmpxmeoiiHW94b86jGv7pba3QOpIaK4UlTJHbJy9kUzXlo3DxIB4L1jmh4F15IxxjcbaWWNByCIOQRdAuTWju5L+5i9fHm/uwrqWf+501DadM6GvFxvVV6mpnXKOIP3HO8IxZAwAT0FWJ9d7QH4cP6NL/KudrquCKdzZHgHrIXW4bRVE1M10cZI6gSp4ig8e1nZ+/wD/AGCNv40Eg/2r1Q7TNBy+w1PQD8Yub84WsK6mO6RviFtnD6sb4neBUuRcKl1lpOqwINSWl+f+rYPnK6lNcKCqx6mraafPLvcrXfMVM2WN/wALgVA+GRnxNI7l6URFIo0RERERFXG3vWw0ppR1HRzbt2uLXRU+6eMTOT5PIDgdp7Fkxhe4NCwkkEbS53BUp3QGrRqbW8lNSy79utmaeHB4Pfn7Y/zjA7Grr9zFpc3TVsuoaiPNLa24iJHB07hw/wBLcnxkKqKOmnrKuGkpYnTTzvEcbBxLnE4A862ds10vDpDR9FZmbrpmN36mRv8AeSu4uP8AAdgCs6hwhiyNVNSMNROZHcNfRSRERVSvERERERERERERERERERERERERFlLbfpE6W1hJJTsxbrgXVFPhuAwk+HH5CcjsIUJoKqooa2CtpJXRVEEjZInt5tcDkFa92l6TptYaXntkm6yob9tpZSP6uUDh5DyPYVk+DT18qLtNaqe01k9dBIY5YY4i4scDgg44DxlfP8Yw51NU5oxo7UW58l9KwPE2VdLllPvN0N+XP1V2O1E401BtaskJczcbR6moY+ZaOHfAPvmZBB+9I7VcNrrqS52+C4UM7J6aojEkUjDkOaeRVL7HtH6o0lUVFbqKW22+yVkJjrKWrnBLxg4OPYg8ccTyJXQsmstnmzqhq7ba77XXeGSd0sVLCBKynyfYMdgDHlK7CmxFppGuqzkeNNdLrh6vC3CtcyiGdh101t1XVwoqAvu324SbzLJYoKdvISVchkd491uB6SoJfNpet7vvCe/VEEZ/u6XELcfm8fStCfaKkj0Zd3Z+VY0+y9bJq+ze03+i1hcLlbrdH3yvrqWkZjO9NK1g9JUPu+1rQluyDem1bx7mljdJ6QMelZTqJZaiUy1Er5pDzdI4uJ8pXwqqbaeY/LYB26+iuYdkoW/NkJ7NPVaCum360xlzbbYK6p6nTytiHmG8VF7nt51POC2httsox0FwdK4ecgehVKv4eHM4VbLjdbJ/zt2WCtYtn8Pj/wDzv2kn8Kb3Hatr2tzvX6SBp6KeJkePKBlR+u1PqSuJNZf7pPnofVvx5sr8bZY71c3AW60V9Xnl3mne4ecDClFt2Ta9rgCLGaZp6amZkfozn0KEGtqd2Z3iVORQUu/I3wChMskkpzK98hPS9xPzqwdkQA05rzAA/wDQn9H4y69BsG1PKAau6Wum6w0vkPoAClNFs2fofRGrquW7trn1VoljLGwbgbhrjnOTlW2DYZVx1kcr2WAPUqXHcWopaCWKOQEkcL8/BZtHIIg5BF9XXxRTu0e0nc//AOgg/cuUTVw7BNK27V+z+8Wq6PqGQNukcwMDw128IsDiQeHEqYSbBtJO9hcLwz/vMPzsXzvaLCKmrrXSRgWsOK+qbL41S0eHtilJvcncs3JkrQ82wGwH+qvl0Z+M2N38AvHN3PtIR9p1RUNPw6RrvmcFQHAK4f8AHzC6Vu0mHne+3cfRUHgdIHmX9YSw5YS09beCump7n+5An1NqSkf1d8pnN+Ylcqs2Favhz3irtNT4pXNPpaoHYPWt3xnyP0WwzHMPfulHmPqq8or/AH2hINHerlT45d7qnj+KkNu2o68oSNzUNRMB0VDGS/OMr0V2yPX1KCfWQTgdMFRG70ZBXBr9HasoATV6busQHN3qVzh5wCFhlrqfg5viFJnw+p4sd4FTy17d9UU+G11vtta3pIa6J3oJHoUstO32zSlrbpY66l63QyNmH+0rP00UsDtyaN8Tup7S0+lfHPlxU8WN10Wme/br+Vry4Bh8uuS3YSPwtbWbahoe67rYb9TwSO5R1QMJ87hj0qltp2hdoWo9QVeojT0t3gkO7D631IkbHEPYtaDg8urmSSqyXqtlyuNsmE1tr6qjkHuoJXM+Yq4o9rZYTeSMHs0VFX7FQ1DbRyEduvorj7nTZ3WU1zl1RqChmppKZzoqKnnjLXB/J0hB6uQ8ZPUr8WW9P7Zda2vdZU1UF0iHuaqPwv8AW3B8+VYunNvFiqt2O922qtr+mSM9+j9GHDzFXDNo6Sqddzsp6/XcqR2y1ZRMsxuYcx6b1b6LlWDUlhv0XfLPdqStGMlscgLh428x5QuqrNj2vGZpuFUvY5hyuFj1oiIsliiIiIiIiIiIiIiIo3q3XOmNLtIu10ibOBkU0X2yU/mjl5cBRySsibmebDrUkUMkzskbST1KSL8K2spKGndUVtTDTQt9lJK8MaPKVQOrdu90qS+DTdvjoY+QqKkCSQ9ob7EeXKqu+3y8X2pNReLlU10mcjv0hIb4hyHkCoKraSCPSIZj4BdJR7LVMvvTHKPE+nmtHan206QtW9HQSTXicdFM3Eee17uHmyqu1Dtq1VXmRlrio7PE88TCzflPaXO4Z8QVZIueqccrJ9M2UdWnnvXT0uz9FT65cx69fLd5L2Xa6XK7VBqLpX1NbKfdTyl/z8l40XYsGltQX4F9rtc88LfZTuAZC3xyOw0edVYa+V1gCT4q2c6OFlyQ0DuC46/nIZKsLS+h9NVF8p7VfNbUEdVM7dEFADKN770zEbgJ6MZUgvrbbsu1fTsrdA0tVZXnEdwlldUTS9o3sMa4dLMDPQVcYfgNTWk5SBbr18B97KjxPaSlw8DOCb9Rt4nh1i6rWxaY1DfHAWmzVtYPv2RHcHjccD0qwLDsL1RWbr7pV0VsYebd4zSeZvD0q/dLXyzagtEVfY6uGopSMDc4Fh+9c3m0jqK6qvodmaeP5pLj4fnzXPT7WVMo/hAaPE+nkqosmwrStJh1yq6+5PHMF4iYfI3j6VN7NonSdnA9b9P2+Jw5PMIe/wD1OyVIEVtDQU0PwMA7vuqSfEquf5khPfp4bl/Gta1oa0AAcAAv6iLcWkiju0z2vNQ/k2f9gqRKO7TPa81D+TZ/2CsmfEFhJ8B7Fikcgi/rQXENaCScAADiSrn2VbFKu6d6u2rmS0dEfCjogd2WUdG+fcN7OZ7FeSSNjF3LmooXymzQpP3JrHDSt4eWuDXVzd0kcDiMZwrpXnttDR22hioaCmipqaFu7HFE0Na0dgXoVLK/O8uXRwR9FGGckREUalREREREXC1pq2x6RtZr71WNiB4RRN4ySnqa3p8fIdK9AJNgvHODRcr3X02iG3TVd6bRijhYXSvqWtLGt7crN+odf7Pay9VLBs6pKi3h27FURS+p5n/C3WjA7BlRzaftGvOuKzcmJpLXG/MFGx3Dsc8+6d6B0Lm6A0ZedZ3cUNrhxEwg1FS8fa4GnpJ6T1NHErc/x0Dm3qGg9qrTi1S14bSuI7OKsHSWnNnGva91BYYtTWusawyPDw2WGNvWXHOOoceK9142BXiLedar5R1QHJs8bonHyjIVy6D0jaNG2NlstUXE+FPO8fbJ3/fOPzDkF9Vtwludzkstre9rIuFdWMPCDh/VsPTIf1RxPHAXO1mEYc4+7Ha+62i6ugxvFGN9+S9t9xf8rMl62Za4tW8ZrBUTxjjv0pEw/V4+hRKogmppTFUQyQyDmyRha4eQrcVNDHTwRwRN3Y42hrRnOAO1ea62m13WEw3K30tYwjG7PE1/zhVU2zDDrE+3br6K5g2tkGksYPZp5a/VYmhllgmbNDI+KVpy17HFrh4iOKn+ldsGsLLuRVNUy7UzeHe6sZfjseOPnyrev+xbRdxDn0cFTa5TyNNKS3P4rsjzYVc6k2Fajot6SzVtLdIxyY77TL6fBPnCrTheJUJzRf8A8n7fhWgxfC8QGSbT/wBh9+HirG0htk0petyCvkfZqp3DdqT9rJ7JBw8+FY8Msc0TZYpGyRuGWuacgjrBWTbHss1vdK51KbNLQtY7dkmqz3tjfFzLvzcq+dluz+bRkB79qCurXPHhU7XbtM09YYcnPbkeJXuFV1dOcs0enPd5ce5c7jGH4fTjNBLr/Xf58O9TtERX65xERERERfx7g1pc4gADJJ6AiKlO6L1vdLVXUmnrLcJaNz4DNVvhOHkOOGt3uY5E8OxUG975Hue9znvccuc45JPWT0ru7Qr2dRa0ul33iY5pyIeyNvgs9AHnXBXzPEqt1VUOffS+nYvrGFUTaSlYy1nW17URe+xWW7X2tFHaLfUVs/S2Jmd3tJ5AeNXBo3YRM/cqdVXARN5+pKQ5d4nPPAeQeVYUuH1FWf4m3HPh4rOsxKmox/K6x5cfBUpS09RV1DKelglnmecNjjYXOd4gOKsrSexXVN23JroYrNTHie++HMR2MHLykLQemtL2DTlP3my2unpARhz2ty9/4zjxPnXYXT0mzUbdZ3XPIaD1+i5Kt2rlf7tO3KOZ1Phu+qgGlNkejrFuSyURulU3j36sO+AexnsR5ioJ3QOkdStc+70VdWV1ja3L6IO8Gjx0hgwCztxkdPDir6X8c1rmlrgCCMEEc1bT4XBJAYWDKOr78+9U1NjFTFUCd5zHr+3LuWFxw5K4Nnu0m3XK0/UhtCjZWW+UCOKrmGd3qEh58Oh44jp612NrGxwSGa9aQha12N6a3NGA7rMXb8HzdSomaKSGV8M0b45GOLXse0hzSOYIPIrjbVeD1Fxp9D++IXc3oscpsp1+oP73FWxqXQ2rNm9xdqbQdfUVdqcN94j+2OazmBI3lIzHuhxHZzU22ebbbFfGxUV/3LPcHYaHudmnkPY73Pid51VuzPafeNIPZRz71wtGeNM93hRdsZPL8U8PEp/edCaG2n0El70hWw265HjKxrMNLj0Sxe5Pwm8+1d3h2NU2Ityv0f5/lfOcU2fq8KcXRas8vwf26uqN7JGNfG5r2OGWuacgjrC+llQVu07ZLViCYzNt4d4LZMzUcn4p9yfFunsVj6R2+WGuDINRUU9qnPAzRgywnt4eE3zHxqyfSvAu3UKrjrWE5X+6etXIi51jvtmvlOJ7Rc6SujIzmGUOI8Y5jyrorXII3rbBBFwi4+tqCpumj7vbaNrX1NVRywxBzsAuc0gZPRzXYRAbG6OFxZVpsr2SWjSTYrjcu93K8jiJXN+1wHqjB6fhHj1YVloiye9zzdywjibG3K0IiIsFIiIuRqHU2n9PwmW83ejogBndkkG+fE3mfIF6AToF4XBouV11+dTPBS076ipmjhhjG8+SRwa1o6yTyVK6u7oC2U7XwaYtktbLyFRVDvcQ7Q32TvLhUtq/WmpdWTF16uks0Wctp2eBCzxMHDynJW1HRvd8Wi0ZsQjZo3Uq79ou3S229stBpJjbjV8WmreD3hh629Lz5h2lZ+v95ul9uUlyvFdNWVT+ckjuQ6gOTR2DgvbpHSWoNV1fqex26WpAOHzHwYo/xnngPFz7FoPZxsTsthMVfqB0d4uDcOEZb/R4j2NPsz2u8y27w0w03+a0bT1h13eSqrZbslvGrXxXC4iS22Y8e+ubiScdUYPR8I8OrK05pyx2nTlpitlopI6SliHsW83Hpc48yT1lfOo79Z9N2x1dd62Kkp2jDd7m4/etaOJPYFDqduodoZEtXHU2DSxORTEltXXt+GR/VxkdA4lU9XiBc7INXch9Ty7fBX1DhYYzpDo3i4/Qcz1DvXVqr1W6mrZLVpeV0VBG8x114bgtaRzjg++k6C72Le08FJrTb6O1UEVDQwthgiGGtByeskk8SSeJJ4kr7t1FSW6ihoqGnipqaFoZHFG0Na0DoAX7qOKIg5nm7vp1D91U00ocMjBZo8T1n90RERTKBERERERERERERERERFDNtF99Ydndynjfu1FSz1LB170nDPkbvHyKZqJ680VTayq7cy6VkrbbRudI6mi8EzSHgN53QAM8uPE8QtasEjoHNi+Iiw7+PctuhdE2oY6b4Qbnu4d+5ZT0/Yrtfq5tDZqCesm6RG3g0dbjyaPGrq0RsKgi73V6srO/u5+o6ZxDB2OfzPkx41cFktFsstCyhtVDBR07eTIm4B7T1ntK9yp6LZ6CH3pvePl+e/wV3X7TVE92we43z/Hd4rx2e1W2z0TaK10MFHTt5RwsDR5es9pXsRF0DWhosBouac4uN3G5RERerxERERFCNo2zWxawidUPYKG6BvgVkTRl3UHj3Y9PapuiingjnYWSC4U1PUS07xJE6xCx3rfRGodI1JZdaMmmJxHVxZdC/q4+5PYcFcS03K4WmujrrbWTUlTH7GSJ5afF2jsPBbbqqeCqp309TDHNDIN18cjQ5rh1EHgVU+t9iFmuXfKrTk/rTUnj3hwL4HHxc2eTI7FyVbs7JGc9Kb9XHuK7Sh2nilb0dWLde8HtH+1wtH7baepphbNbW5k8TxuPqoog5rh/zIj/AA8y6l32TaC1lSOumkLlHQufxzSuEkGeoxk5b4gR4lTmqtE6n0w5xu9qmjgB4VEY34T+eOA8uFyLVcrhaqttZbK6oo528pIZC0+jn5V5R7RVlC7JOCe3Q/n91Su2YocQb0lOQL8tR+O7wUuv+yPXum5zVUNM6uYw5bUW2U747d3g4eTK8Vt2n7RNPzeppbzVOLOBguEW+R2eEN70qXaX256hoAyG90dPdYhwMjftUvnA3T5gp9SbTdmuqoG097ihgcRjvdypQ5oPY/iPmXV0u0tHUizyL9en481xlXslXUpJjBt1a/TXxCgNs7oS/wAQa242K3VQHN0Uj4ifPvBd+l7om2Ox6q0xXRHp73UMePSApFNss2X6iYZrZDCzPHft1bw8wJHoXCru54sr3E0WorjTjoEsTJPm3VbNkpJBeypXRV0Rtf8Ae9epvdB6VLfCtF5B6gyM/wC9fyTug9LBvgWe8uPUWRj/AHqPVHc7VgP9H1TTuH/MoyPmcV5vseL3747d8g/6Vllpef1WJfXcvou1Vd0TQNBFLpeskPQZapjB6AVHrp3QWpZ2ubb7PbKMHk6QvlcPmHoXvp+52rif6RqmmaP+XRuPzuXXoe53tDHA1upLhOOkRQMj+feXt6Vv6ViRXP6vBVLfNpuuryHNqtRVUUbucdLiBuPzcH0qKNFRWVWGiapqHnkAZHuPpJWrbRsW0BQEOkts9e4dNVUOcPMMD0KXUtFprTNNmCntdohA4uDWQjynghrYox7o+yNw6aU++77rLul9kWuL6WPNs9bad399XHvfDrDPZHzK3dHbCNOWwsqL9US3moHHvZHe4AfxQcu8p8i79/2u6ItIc1lzNxmb/d0bDJ+twb6VCZdqutdWTvo9D6ZdG3ODUPHfXM8ZOGN8uVTVO0ELTlDrnk3U+SvqTZiZwzuZYc3aDzVxzTWbTtpDpH0VroIRgexijaOoDkq7ue1Ktvlc+z7OrNNdqrO66tmaW08XwuPR2nHiK8Vj2R3K81bLrtDvtTcp+YpI5SWt7C7+DQPGrWs1qttmoWUVrooKOnZyjiYGjxnrPaVpg1lVv/jb4uP2HmVYFtDR6D+V3g0fc+QUK0ns63LgzUGs691/vfsm994wUx6o2cuHXjxAKwURb0FPHA3Kwep7TxVfUVMlQ7NIezkOoDgiIimUCIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi+ZGMkY5j2tc1wwQRkEKEap2U6NvznSut3qCpd/fUR70Se1uN0+ZTlFDNTxTtyyNBHWp4KmandmicQepZ91BsDucO9JY71T1TeiOqYY3f6m5B8wUGuuzTXNtce/adq5Wj3VNiYH/AEkn0LXaKmm2cpJNWXb2flXsG1FbHo+zu0eiw/JBcLZMHSQ1dDKOOXMdE7z8F2rbr3WNvAbS6muIaOTXzd8HmdlbDmhimZuTRMkbnOHtBHpXKrNLaaq2OZU6ftcoed529SMyTzzyWl/05LGbxTW8R9Ct/wD6phlFpoL94P1CzfS7ZNewtAdcqacD/wB2kYfmwvczblrRrcOitLz1mmcP9yvb6g9F+9e0forfoT6g9F+9e0forfoUrcLxJu6o8yoHYvhTt9N5BUS/bnrPGO92hh6/U7v5l5ztg2h1zu9UlVAHuOA2noQ4/wAVoak0fpWla4QactLA7nikYc+cLrU1LTUwxT08UIwBiNgbwHLkpW4VXu+OpPdf1CidjGHN+ClHfb0KzRE/bRqNv2s6hMb+R/4ZhHjO6upatiGqbpMJ9Q3inpcnjl7qmX04HpWicIpW4DCTeZ7n9p/fqoX7RzgWgY1nYP0eSrfTOxnR1oeyarhnu07eINW4bg/MbgefKsOkpaakgbBSU8UELfYxxMDWjxAcF+qK1gpYacWiaAqeorJ6k3leSiIi2FrIiIiIiIiIiIiIiIiIiIiIiIiIiIiIvmaSOGJ0ssjY42jLnOOAB1kr6WbO6E1rV3TUc+m6OokjttAdydjTgTTe63usN5Acs5PUtDEa9lFD0jhc8ArHDMOfiE/RNNhvJ5BW/cNqmgqKoMEuoYJHjmYY3ytHlaCF19M6v03qQYst3pqqQDJiB3ZAO1jsH0KhdJ7FNRXm1xXCtraa1smZvxxSMc+XGOG8BgNz48r+UWyDXFBrClpqaZkDGEStutPIQ2IA4JHJ2/8AB6evGVUx4niV2udBdp5b/r9QrqTCsKs5jKizhz3fQeRK0wotFtD0XJcm25moaR1W6bvDYhvZMm9u7vLnngpLTsfFTRxySumexrWukcAC4jpOOHFZBtOfrq0o4/26P/IW9imISUZjyAHMba9yr8IwyOtEpeSMouLd62EotJtD0XHcnW5+oaQVbZu8GLwsiTe3d3lzzwUoz4/MsfXLP11Zxx/t0/8AkJiuISUYZkAOY21XmDYZHXmQSEjKL6LYL3tYxz3HDWgknqAUP+uhoH3z0P630KU1/wDwFR/lv+YrGWlLPPqHUVFZYJ2Qy1cne2yPBLWnBOSBx6Fhi2IzUjo2xNBLr7+71UmDYXBWskfM4gMtu778DyWpProaB989D+t9C7GmtU6f1IZxY7pBXGn3e+97z4G9nGcjpwfMqR+sHfvw/bfkZFYWxrZ/cNDyXR1dcKar9WCIM7yxzd3d3s5z+MvKSqxGSYNmiAbxPd2r2to8Ljgc6CYudwHf2DgrFJAGScAKG3XahoW2VbqWp1BA6VpIcIWPlAPUSwEZXD7pG7Vts0HHDRTOh9XVTaeZzThxj3XOLQe3AB7MqmNmGiKXWMtSKnUNJaxTkDvTgDLICObQSBjozx4rDEMUmiqBTU7QXdf+wpMNweCWlNVUvIb1f6P0Wj9N6+0jqGqFJar3Ty1BOGwvDo3u8QcAT5FJlmO97GtX22+0tNaSy4xSnejrI3d6EJbj2eT4J6QQTnoWitMU90pNP0VNe6uKruEUQZPPGCGyOHTx6cYz2rZw6rqZi5lRHlI48FqYpRUkDWvppcwPDiP3rsuPX7RdE0FdPRVeoqOGop5HRyxu3stcDgg8F+H10NA++eh/W+hV5qnYnervqa53WK92+KOsq5J2sdE8loc4kA46eKpu5Wqah1JUWN87HywVhpTI0HdLg/czjnjpVXV4vX0x9+MAE2H7dXFFgmG1bf45SSBc9XktWUe0fRFZVw0lNqOjlnnkbHGxu9lzicADh1qR3Svo7Zb57hXzsp6WBhfLI7k1o5kqkNO7EL3bb/brlJfLfJHS1UczmtieC4NcCQPMrN2v+1lqD4jIrSmqaswvfUMDSN3h2qnqqSjE8cdNIXBxserXsC/H66GgffPQ/rfQn10NA++eh/W+hZq2f6Uq9ZX59po6uGlkbA6Yvla5wwCBjh+Mp/8AWDv34ftvyUiq4MWxGoZnjiBH71q4qMGwqmfklmIP71K9tPXy06goTXWauiraZshjMkecBwwSOPjC8eo9Yaa07VR0t6u9PRTSx98YyTOS3OM8B1hczZJpOr0bpeS01lXDVSOqnzB8TSBhwaMcfEqk7qbP1ZWr8nf/ACOVlV101NRCdzRm0uFU0WH09VXmna4lmtjx07vsra+uhoH3z0P630Lsad1Tp7UJeLLeKStdHxcyN/hAde6eOO1Z70fsfvGpdN0d8przQwRVTS5sckby5uHFvHHDoUUvttvegdZGmdUCK4UT2yxTwuO68Hi0jsPIg9oVYcarYWtlmiGQ8R195VsMBoJ3OhgmOccD1dwWyFEqraToelqZaao1JRRzRPMcjDvZa4HBHLrXd07cWXewUF0jDQ2rp45sNOQN5oJHkKyFfaZ9dr6uomPDHVF1kia53IF0xGT51YYrib6RjHRAHNzVbg+Ex1r5GzEjLyWnProaB989D+t9C7Gm9Vaf1I6dtjukFcacNMojz4O9nGcjsKpH6wd+98Fs+SkVg7G9n1w0RLc31txpasVjYg3vLHDd3d7Oc/jLykqsRfMGzRAN4n9K9raPC44HOgmLncB39nJTPUV/s+naNlXeq+Kigkk7218mcF2CccB1Ar403qSx6jhmlslyhrmQuDJHR58EkZA4jqVdd1H9xFv/ACk3929eHuVP7FvnxuP92pDiEgxAUtha1+vcoxhkZww1lzmva3DfZWnqTUti05HDJe7lDQsncWxGTPhEDJxgLifXQ0D756H9b6FBO6s/suwfGJv2AoDs82YXTWdjkutHdKSljjqHQFksb3EkBpzw4Y8JalXilUyrNPAwOt6dq3KLCKN9E2qqJC29+zfbkVfJ2oaBAz9U9D+t9CltPNFUU8dRC8PilYHscOTgRkFZ7dsCv5aR6/23iMf1Miv20UrqK0UdG9we6CCOJzhyJa0DPoW/h89ZKXe0MDeX7cquxKmoYWt9lkLid9/9BcGPaHouS5NtzNQ0jqt03eBEN7Jk3t3d5c88FKVj20k/XUpeP/50f+QthKPCsQfWh+cAZTbRSYzhsdAWBhJzC+qLh6j1dpvTtTFT3u709FLKwvjbJnLmg4zwHWu4s8d1Pn6qbP8AEX/vFPidW6kpzKwXItvWvhNEytqhC8kA33K1vroaB989D+t9C7tg1FY7/E6SzXWkrg0ZcIpAXN8Y5jyrOejNkV41RpimvtHd6GCOpD9yKVj94Fri3iRw5hRm7W7Uuz3VTGSvfQ3GHEkM0Lstkb1g+6acYIPiIVN/m6yJrZZovcPEdfeVff4Chmc6Gnm98cD1dw8lsZFH9neomaq0hQ3kNbHLKwtmYDwZI04cPFkZHYQpAumjkbIwPbuOq5OWN0Tyx+8GxQrHN+McG0ytfWDdijvLnSh49yJ8nI8S2MqC2/7O683WfVlmp31ME+DWQRsJfG4DHfABzaQBnqPHkeFFtDTySwtewXym/cug2Zqo4p3RyG2cWB61fcTmPja+NzXMcMtLTkEHkQvrhlZL01tS1jp6gbbqW4RTU8bd2OOqjEhiA6Acg4HUUsmptf6g1vTXS21VZcbvGcRtY37W1h5tc0Ya1h6c48eVg3aSFwaGsJJ4fu9Su2VnaXFz2ho4+vLrWtDyWKrrHUTasrIqRsjql9wlbC2P2ReZTgDHTlbOonVLqKB1ZHHHUmNpmZG7ea1+BkAnmM9KyFaS366tL4Q/t0dP/UKLaMZxCOZP2U2yxyGc8gPuvf8AUztP/Bmp/lJP5lH7PHURauoYqtsjahlxibKJPZB4lGQc9Ocraix7cS366s/hD+3T0/8AUKuxTDG0RjLXE3PFWeD4s+v6RrmBthwWu7h/wFR/lv8AmKxRaILhVXKCntcdRJWvdiFsBIkLse5xxzjK2vcP+AqP8t/zFYntNyq7VcoLjb6nvFVA7eikGCWnGM8eHSVubTWzw5t2v2WjsnmMc+Xfpv3cVK/qZ2nfgzU/+uT+ZXF3PNu1Jbrdd26jprlA988ZhFY5xJG6c43ieGVTf11Ne++ab5OL+VWz3O2q7/qaW9tvdzfXCnEHet5rRu72/n2IHUPMoMIkpfa2iMvJ132tuPWtnGo6z2J5kawDTde+8cwp/r/TVu1VpqotVyk7zGftkc4xmF7eT+Plz1jKz1X7HNViIVVofbr1RvaXRT0tQBvt6wHfwJVod0Vp6/XjT1NV2aSsnipXO9VUULjiRh5P3R7ItI5ceB7FTuitpWqNI0nrdQywT0jXlwpqqMuDD0huCC0Hq61PjL6V1VkqWEC3xDj3fpWtgcdW2kL6WQE31aeHfvufBeRldrbQd3ZC6ouVpqW+H3mR5Mcgzz3SS1w5rUOzzUQ1VpCgvfe2xSTsImjachkjSWuA7MjI7CFlzU2o9SbQL3SiqZ6rqWjvVNTUkXAZOTgDJyeknqWm9lenZdL6Ht9pqd31U1rpKjdOQJHkuIz04zjPYmAOf7Q9sZJitx5/t02kYz2aN0oAlJ4ctfLcpQse6q9tS5/lt/79bCWPNVub9dS5+EP7bf0/89T7S/BF2rX2U+ZL2LYYUU2v+1lqD4i9SsKKbX/ay1D8Rer6r/7d/Yfoudov+5j/APYfVZT07RXuvuDoLBBWzVYYXFtIXB+5kZ5EHHJSL6mdp34M1P8A65P5lHNPX66aeuDq+zV5pKksMZkaGk7pIJHEEdAUh+upr33zTfJxfyr51Tvpgz+QuB6rW819PqWVZf8AxNYR13v5BX/sRo7xQ6Cp6e+w1kVaJ5i5tUSZMF3DmScYVWd1N92Vq/J3/wAjlZWwS/XXUWiZa+8VrqypbXSRiRwaPBDWkDgAOkqte6mIGs7Vkgf+ndJ/5jl02Iua7CWll7ab965PC2vbjTg+1/e3bu5RTT20/WFhs9PaLZX00dLTNLY2OpmOIBJPEnjzJXhpKPVG0XVcj2tlrq+pcO/z7uI4W8gXY4NaB0eZXNo7RVq1hsOtFHPHHBVGN8kNWyMb7HiR4BJ5kdBHUqetdw1Fs01o8OD6aqp37lRA44jqI8+lpHEO6FTVFPNE2I1DyYjY9mm7uV9TVMEr5hSsDZmkjXjrvv1nz3rWdmoIrXZ6O2wY71SwshbwxkNAGfQsdamkmi1rc5adz2zMuUro3M9kHCUkEduVrvSV+odTaepb1by/vFQ3IDxhzSDhzT2gghZSlcPrqu8IZ9fev/qFa7Q5Xxw5DoTp5Kl2Zzsln6Qaga9ut17fqv2lfhjUPybv5VcPc8XbUV1oLw7UNXX1D45ohCatpBALTnGQFagC/qsaPCpKeUSOmLrcD/tVldjMVVAYmwBpPEW9Aqk7qP7iLf8AlJv7t68Pcqf2LfPjcf7te7upCBoi35IH/qTef+W9eDuUyDZb7gg/0uPl/lrTd/5sdn2W83/wDu37hfPdW/2XYPjE37AVR6bs+sq+gdNp+jvM1IJC1zqRzwzfwMg4I44I9CtzurSBa7Bkgf0ibmfgBVDpzW2ptO0LqGy3l9HTOkMro2tYQXEAE8QegBVOLmMYi7pCQLDdv3BXWCiU4WzogCbnfe288l1fqZ2nfgzU/wApJ/MtYUocKSIPBDgxuc884CyY7apr0Mcfqmm4A/3cX8q1TYJ5amwW+omeXyy00T3u6yWgkq3wB8Bc8RFx3fFbr5Kk2kZUBsZmDRvtlv1b7rJdp9tWl/Lo/wDIWw1iq5VktDq+rraaRrJ6e4ySxuODhzZSQcdPEKWfXm19+F6X9Ej+hVmFYpDRdI2QHU8P9q2xnB58Q6N0RGg439CtUrPHdT/dTZ/iL/3inmwTVt71ZaLnUXuqjqJKepbHGWRNZhpZn3PaoF3VBA1TZ8kD+gv5n/mK3xeobU4aZWbjb6qlwWlfS4sIX7xfd2KzdgXtUWf/AL3756gPdWT0jqiw0zXMNWxsz3gDwhGd0DJ6iQfMVXlh2lausVjis1rukNPSRBwjHeGOc3eJJ8IjPMlfjYrHqraDqF0kYqK2omcDUVs+e9xjllzuWAOTR5AqmbFG1FGyjiaS6wHhbd4K4gwh1LXvrpngNu4+N9/irz7mdrm7N3EtIDq+YjI5jDR/BWeuVpGx0um9OUVlpCXRUse7vHm93Nzj4ySV1V1tFCYKdkbt4AXF187aipklbuJKIiLaWoubV2CxVc7p6uy22omd7KSWlY5x8ZIXqoKChoIu9UNHT0sf3kMTWDzAL0IsBG0G4GqzMjyLE6IvKLdQCQSiipg8He3u9NznrzhepFkQDvWIcRuReU26gMnfDRUxfne3u9NznrzhepEIB3oHEbkIBGCOC8frXbfwfSfIN+hexELQd6BxG4rx+tdt/B9J8g36F+1NS01Nvep6eGHe57jA3PmXHq9Z6SpKqWlqtS2iGeJ5ZJG+rY1zHDgQQTwK/kGtdHzytih1RZnvdyaK2PJ9K9EVtQ1YmcHQu8131yLtpjTt1c59ysduqnuOXPlp2lxPacZXVikjljbJE9r2OGWuacgjsK+li9jXizhdSMkcw3Ybdi8VrtFqtbd2222jowQAe8QtZnHXgcV7V8yPZHG6SR7WMaC5znHAAHMlcm1aq01daxtHbL/bKypcC5sUFSx7iBzIAKyayw90aLB8lzdx1K7C8rrdQOkMjqKmLyd4uMTck9ecL1IvCAd69DiNyL5ljZLG6ORjXscMFrhkEeJR8660YCQdVWUEf9bH9K/ai1hpStqBT0mpLRPKeTGVjCT4hlZljuSjEjb6FdD1rtv4PpPkG/QnrXbfwfSfIN+hewHIyF47vdbZZ6UVV1r6ahgLwwSVEoY0uPIZPTwKjEbTwUpkcNSV6KeCGnZ3uCGOJmc7rGhoz5F8VFHSVLw+opoZXAYBfGHEDyhcT6u9F++uy/psf0p9Xei/fXZf02P6Vn0Rtayj6Zt75vNSCGKOGNsUUbY2N5NaAAPIF+VRR0lS8PqKWCVwGAXxhxA6uIX9oaumrqSKro6iKop5Wh8csbg5rwekEcwudX6n07QXH1trb5bqasy0d4lqWtky72Pgk545GF5kvpZZZ8ut11IIooIxHDGyNg5NY0ADyBfh63UHfO+eoqbfzvb3em5z15wvUvyq6mnpKd9RVTxQQsGXSSPDWtHaTwC8yg6WXuYjW6/VFFfrjaF9WepPqrtPffjA3eWfZcvSpLS1FPVQMqKWeKeF4y2SN4c1w7COBWZaRvCwa9rtxX9qKeCoYGVEMcrQcgPYHDPlX8pqanpgRTwRQhxyQxgbnzL6qJoqenkqJ5GRQxML5HvOGtaBkknoAC4H1d6L99dl/TY/pWIZc3AXpkDRYld2ppqepDRUQRTBvLfYHY86/D1rtv4PpPkG/QuT9Xei/fXZf02P6V07NebTeYZJrTcqSvjjduvdTzNkDTjOCR04R0XEhetm4Nd5r79a7b+D6T5Bv0L1taGtDWgAAYAA5L+ovA0DcvS4neV5HWy3OcXOoKUknJJhbx9C/nrXbfwfSfIN+hexF5kbyWXSO5r8qamp6ZpbTwRRBxyQxgbnzL5qaOkqXB1RTQyuAwC+MOIHlC/dF7lFrLHMb3uvH61238H0nyLfoXqijjijEcTGsY3gGtGAPIvpEDQNwXpcTvKIiL1YoiIiIiIiIiIiIiIiIiIiLIdxsbNS7c7lYn1DqZtZeKlhlazeLMF5zjp5Ke3TueGRW+aWj1QXzsYXMbUUgbGcdZDuHjVd6ht1zu22a726zSd6r57vUNgf30x4O84+yHEcAVI67ZbtaFHKZKx9UzcO9C27OcXjqwcA+JW7iRls+2ioGNac14y7Uro9yzf7hFqer04+d8lBNTOnZGXZbFIwtBLerIODjqBWj1mvuYLnbrbrKus1dQmO51cZZDO44Le98XRFvRyJz8HC0otKsH8u5WWHm8I1Vad0Vqj1g0HLQ0825XXUmmjxzEf947/Tw/OWcdOVd00fe7HqVsD4muPqinJHCaIOLHjxEbw8yk22vUUWrdprqcVzIrZRyNoopnnwGDe+2ycM8N7PHqaFK9s9z2eXjQFBQ6ev1JJWWbcbRwtDt6SPAa5vEc8AO/N7VtRN6NjWkb960J3dM9zw62XctAWytprlbqe4UcolpqiJssTx7prhkFfu72J8Sp7uX9UG46Zn03UyA1FrO9ACeLoHE4/0uyPEQrhd7E+JV8jDG8tVvDKJYw8LGOzvSUmtNVyWWKuZRO71LN310W+PBcOGMjrU61JsDu1tslVcKS901fLTRmXvHqcxl4aMkA5PHHJQnZpq5mitXyXuShdXDvUsPemyiM+E4cckHqU91Zt+qrnY6i32uxtt81Qx0ZnlqRJuAjB3QGjjjPNWknT5xk3Kkh9m6M9Jv713u5b1ZX3GmrtNV88lQ2jibPSPeclkZOHMz1A4I8ZCsbafo2PXGnY7PLcH0LWVLJ++MiDyd0OGMEj75V13Luka+2UtdqW4QSU4rImwUjHjDnRg5LyOonAGeonpV3rQqHBsxLFaUrC+nDZP0LKW1/ZhBoO1UNbFeZa81VQYS18Aj3cNLs8Cc8l2dnmxWm1Vo633+TUM9I6ra5xhbStcG4e5vMu48lKu6z+5iy/H3fu3KYbAfaisP+XJ+9ep3TyCAOvrdaraaI1LmW0t6KS6QszdPaZt9kZUOqG0UDYRKW7pfjpx0LN+2v2/f+/Q/wCxalWWttft+/8Afof9ijozeQk8lNXgCJoHMLUoWZO6PvFxum0ZumpKo09vpmwtYyRxbEXyAEyO6wMgZ6MFabCrba5sqo9bzx3OlrBb7rHH3syOZvRzNHIOA45GTgjzFR0z2sfdylrI3yRWYoq3ue7XJa2mLU1W6qdGCJBCwwl3WAOOPKutsM0Dq/RtzrjdLjSttkgcxtJE8vEjgfBlHIM4Z4cznjyUBdsr2r6fDn2e4F7Ihloobk9hPDjhrt3oUg2IbT9Q1eqo9JapkNS6XfjimlZuzRytBO4/HPOCOIyCFsP6RzDZwcFqRdEyRuZhaVd98oBdLLXWx0piFXTSQF4GS3faW5x04ys/az2G0undJ3K9M1JPUuoqd0oiNI1ofjozvcFo1RLbH7V2o/iEnzLWglexwDTvW7UwskaXOGoCzvsd2bw6+jub5btJb/ULowNyASb++HdZGMbvpWg9lWg4tB2ysoornJXiqnExc+ER7uGhuMAnPJVz3I3/AA+pf8ym+aRXwpauV+csvooKGBnRtktqiIi01YIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiLHt/vNVpzbPdr5SQRzT0l3qHsZKDuOJc4cccelSqo296yqYTT0tptcMz+DHxxSPcD2NJwStKmKMnJjYSfghBFGDkRtBHSAFuGpY62Zl7KvbRyNJyyWv1LO+wLRuoq3XX1Y32jqYII++TNlqWFjqiaTIyAcHHhOOcY5K29sGpvqV0JX18Um5WSt9T0mOffXDAPkGXeRTBfxzWuGHNDvGMqF82d4c4dynjp+jjLGnU8VlrYvsuh1vQ110utZV0tJFKIYTDu70kmMuJLgeAyPKT1KwvsfNM/hq8eeP+VXG1rWjDQAOoBf1ZvqpHOuDZYR0MTWgEXKybaDVbKtswgnc59NBN3mR5H9ZSyYw7h0gYPjaVrDIdHvA5BGQUdHG45cxpPWQvpYTTdLYkaqSng6G4B0Kyl3PltobntLkpbnQU9ZB6knd3uoiD25Dm4OCMZ4laUpdKaYpZhNTadtEMg5PZRxgjy4XXbGxpy1jQesBfS9mnMjrjReU9MIW5TqiIigWyqV7rME6YsuAT/T3cv8tymGwLhsjsOf/bk/evU5c1rxhzQ7xjKNAaMNAA6gpjLeMMstdsFpjLfeF/VlrbWD9fzOD/X0PR2MWpV8mNhdvFjSeshIZeideyVEHTNDb21X0FnTbPTa+0vtAbq2kuFdVUAeX0coy+OmBGHROYOAHPiRxB55C0WhAIwV5FJ0br2usp4elba9lm53dD300ZibYrYKotwJO/PLQ7r3P4ZTYVpXUN+2gDW93p5oKWOWWpM0kfe/VEz8jDR1eESTjHDC0K21WxsombbqMSB28HiBuc9ecc17BwUpqGhpDG2utdtI9zg6R97Ioltj9q7UfxCT5lLUIBBBAIPQVrtOUgrce3M0t5qh+5HBFPqXII+2U/MdkivhfxjGs9i0Nz1DC/qylk6R5co4IuijDL3siIijUyIiIiIiIiIiIiIiIi//2Q==" alt="Chesterfield Baptist Church logo">
+      <div class="logo-text-wrap">
+        <span class="logo-line1">Chesterfield</span>
+        <span class="logo-line2">Baptist Church</span>
+      </div>
+    </div>
+    <button class="admin-link" onclick="showAdminGate()">Admin report ›</button>
+  </header>
+
+  <div id="app"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const AREAS = [
+  { id:"outreach", name:"Outreach & Partnerships", cat:"OUT",
+    stages:[
+      "I know the church is part of the community.",
+      "I recognize that the church has limited resources, but has an inherent need to support its community.",
+      "I keep an eye out for partnership opportunities between the church and the community.",
+      "I regularly contact local community businesses and organizations to explore partnerships on important missions.",
+      "I seek out and participate in missional outreach beyond the church's immediate neighborhoods."
+    ],
+    questions:[
+      {text:"\"I see the church as connected to the broader community.\""},
+      {text:"\"I believe churches have a responsibility to support the community around them.\""},
+      {text:"\"I actively watch for ways our church and local organizations could work together.\""},
+      {text:"\"I regularly reach out to local businesses and organizations to explore ministry partnerships.\""},
+      {text:"\"I seek out and participate in missional outreach beyond our church\u2019s immediate neighborhood.\""}
+    ]
+  },
+  { id:"evangelism", name:"Evangelism", cat:"OUT",
+    stages:[
+      "I could imagine inviting someone to church, though I haven't really done it.",
+      "I share with close friends and family why my faith matters to me.",
+      "I freely share what I love about my church and invite others.",
+      "I actively seek out people to share the Gospel with.",
+      "Inviting people to church and sharing the Gospel is a regular, natural part of my life."
+    ],
+    questions:[
+      {text:"\"I could probably invite someone to church someday.\""},
+      {text:"\"I talk about my faith with close friends or family.\""},
+      {text:"\"I openly share what I love about my church and invite people to come.\""},
+      {text:"\"I am intentionally looking for people to share the Gospel with.\""},
+      {text:"\"Sharing the Gospel is a natural, regular part of how I live.\""}
+    ]
+  },
+  { id:"fin-generosity", name:"Generosity (Financial)", cat:"IN",
+    stages:[
+      "I'm curious about why people give financially to the church.",
+      "I have given financially to the church, but not regularly.",
+      "I give 10% of my income to the church.",
+      "I give more than 10% and occasionally give to additional ministries.",
+      "I give more than 10%, regularly support additional ministries, and am considering planned giving."
+    ],
+    questions:[
+      {text:"\"I find myself curious about why people give money to the church.\""},
+      {text:"\"I have given financially to the church at least once.\""},
+      {text:"\"I regularly give 10% of my income to the church.\""},
+      {text:"\"I give more than 10% of my income to the church.\""},
+      {text:"\"I give generously beyond a tithe and support additional ministries regularly.\""}
+    ]
+  },
+  { id:"time-generosity", name:"Generosity (Time)", cat:"IN",
+    stages:[
+      "I understand that many people volunteer at church.",
+      "I've thought about volunteering at church.",
+      "I regularly volunteer in a church program or activity.",
+      "I regularly volunteer in multiple church programs or activities.",
+      "I lead a volunteer team in one or more church programs."
+    ],
+    questions:[
+      {text:"\"I understand that many people volunteer at church.\""},
+      {text:"\"I have thought seriously about volunteering at church.\""},
+      {text:"\"I regularly give my time to serve in at least one church program.\""},
+      {text:"\"I regularly volunteer in more than one area of church ministry.\""},
+      {text:"\"I lead a volunteer team in a church program or activity.\""}
+    ]
+  },
+  { id:"prayer", name:"Prayer & Meditation", cat:"UP",
+    stages:[
+      "I know time with God is important, but I rarely pray.",
+      "I pray during church events, but not on my own.",
+      "I pray often, but mostly focus on my own needs and wants.",
+      "I pray daily, but don't often take time to listen for God.",
+      "I pray frequently and spend significant alone time with God."
+    ],
+    questions:[
+      {text:"\"I believe prayer is important, even though I rarely do it on my own.\""},
+      {text:"\"I pray during church events or services.\""},
+      {text:"\"I pray fairly often on my own.\""},
+      {text:"\"I pray every day.\""},
+      {text:"\"Prayer is a core, daily rhythm of my life.\""}
+    ]
+  },
+  { id:"worship", name:"Worship", cat:"UP",
+    stages:[
+      "I recognize God's power and purpose, but I'm not comfortable in public worship.",
+      "I participate in church worship, but it feels more obligatory than heartfelt.",
+      "I participate in church worship with genuine devotion and praise.",
+      "I participate in personal and church worship with full recognition of God's role in my life.",
+      "I lead a worship activity at church in a visible and genuine way."
+    ],
+    questions:[
+      {text:"\"Expressing worship \u2014 especially publicly \u2014 feels uncomfortable for me.\""},
+      {text:"\"I attend church worship, though it often feels more like an obligation.\""},
+      {text:"\"My participation in church worship comes from a genuine place in my heart.\""},
+      {text:"\"Worship is how I fully acknowledge who God is and His role in my life.\""},
+      {text:"\"I lead a worship activity at our church in a visible way.\""}
+    ]
+  },
+  { id:"attendance", name:"Attendance", cat:"IN",
+    stages:[
+      "I've thought about attending church or looked at the church website.",
+      "I have attended a church service.",
+      "I attend a church service about once a month.",
+      "I attend church about twice a month.",
+      "I attend church every week unless I'm sick."
+    ],
+    questions:[
+      {text:"\"I have thought about attending church.\""},
+      {text:"\"I have attended a church service at least once.\""},
+      {text:"\"I attend a church service about once a month.\""},
+      {text:"\"I attend church at least twice a month.\""},
+      {text:"\"Attending church every week is my normal rhythm.\""}
+    ]
+  },
+  { id:"learning", name:"Learning & Connection", cat:"IN",
+    stages:[
+      "I'm seeking answers to questions I have about faith in Jesus.",
+      "I participate in short-term studies.",
+      "I regularly participate in small groups or other church learning activities.",
+      "My peers see me as a spiritual leader in learning activities.",
+      "I lead a church learning or connection activity."
+    ],
+    questions:[
+      {text:"\"I am actively searching for answers to questions I have about faith.\""},
+      {text:"\"I have participated in a Bible study or short-term church learning opportunity.\""},
+      {text:"\"I am consistently involved in a small group or learning activity at church.\""},
+      {text:"\"People in my church community look to me for spiritual insight in group settings.\""},
+      {text:"\"I lead a learning or connection activity at church.\""}
+    ]
+  },
+  { id:"service", name:"Service", cat:"IN",
+    stages:[
+      "I'm thinking about how to serve and make the world a better place.",
+      "I occasionally serve at my church or in my community.",
+      "I serve my church or community at least once a month.",
+      "I serve weekly and am regularly involved in community outreach.",
+      "I'm leading a service team, outreach effort, or mission initiative."
+    ],
+    questions:[
+      {text:"\"I think about how I can serve others and make a difference.\""},
+      {text:"\"I have served at church or in the community at least occasionally.\""},
+      {text:"\"I serve in my church or community at least once a month.\""},
+      {text:"\"I serve in my church or community every week.\""},
+      {text:"\"I am leading a service team, outreach effort, or mission initiative.\""}
+    ]
+  }
+];
+
+const STAGE_NAMES = ["Exploring Faith","New Faith","Progressing Faith","Maturing Faith","Leading Faith"];
+
+const GOD_VIEWS = [
+  {
+    id: 'distant',
+    label: 'The Distant Deity',
+    subtitle: 'The God who really isn\u2019t interested in us',
+    color: { bg:'#EEF2F7', border:'#6B7FA3', text:'#3D4F6E' },
+    icon: '\u2601\uFE0F',
+    description: 'You tend to see God as remote or uninvolved \u2014 present perhaps, but not personally engaged in the details of your life or the world. Many people move through seasons where God feels far away, and that honest awareness is itself a meaningful starting point.'
+  },
+  {
+    id: 'judge',
+    label: 'The Demanding Judge',
+    subtitle: 'The God who\u2019s gonna get us for that',
+    color: { bg:'#FDF0EE', border:'#B05040', text:'#7A2E20' },
+    icon: '\u2696\uFE0F',
+    description: 'You tend to experience God primarily through the lens of moral accountability \u2014 a holy standard-setter who notices when we fall short. This view often reflects a deep respect for God\u2019s holiness, alongside an opportunity to more fully receive His grace.'
+  },
+  {
+    id: 'micromanager',
+    label: 'The Deterministic Micromanager',
+    subtitle: 'The God who\u2019s in control and wants me to be in control too',
+    color: { bg:'#F0EEF8', border:'#6B5EAA', text:'#3E3070' },
+    icon: '\uD83C\uDFAF',
+    description: 'You tend to see God as sovereignly directing every detail, and you feel a strong responsibility to discern and follow that plan precisely. This reflects a genuine trust in God\u2019s sovereignty, with room to also rest in His grace when the path isn\u2019t perfectly clear.'
+  },
+  {
+    id: 'loving',
+    label: 'Loving and Caring',
+    subtitle: 'The God who loves us always',
+    color: { bg:'#EEF8F0', border:'#4A9060', text:'#1E5C34' },
+    icon: '\u2764\uFE0F',
+    description: 'You experience God primarily as a source of unconditional love and care \u2014 a relational presence who is for you regardless of your performance. This view reflects a faith rooted in grace and belonging, the kind Jesus modeled throughout His ministry.'
+  }
+];
+
+// Blind-scoring questions: each answer awards points to one or more GOD_VIEWS ids.
+// 5 questions, each with 4 answer options mapped to a view.
+// Answers are shuffled per question so no pattern is visible.
+const GOD_QUESTIONS = [
+  {
+    q: 'When life gets really hard, what is your gut reaction about God?',
+    answers: [
+      { text: 'He is probably correcting me for something I did wrong.', view: 'judge' },
+      { text: 'He is aware of it, but I doubt He is personally invested in my situation.', view: 'distant' },
+      { text: 'He is still with me and loves me through it.', view: 'loving' },
+      { text: 'There must be a specific reason this is happening that I need to figure out.', view: 'micromanager' }
+    ]
+  },
+  {
+    q: 'When you pray, what does it mostly feel like?',
+    answers: [
+      { text: 'Talking to someone who genuinely wants to hear from me.', view: 'loving' },
+      { text: 'Trying to get clarity on what I am supposed to do next.', view: 'micromanager' },
+      { text: 'Sending a message I am not sure anyone is really receiving.', view: 'distant' },
+      { text: 'Confessing what I have done wrong and asking for another chance.', view: 'judge' }
+    ]
+  },
+  {
+    q: 'When you face a big decision, what is your first thought about God\u2019s role?',
+    answers: [
+      { text: 'I need to find the exact right answer He has already chosen for me.', view: 'micromanager' },
+      { text: 'He will walk with me through whatever I decide.', view: 'loving' },
+      { text: 'He will be disappointed in me if I choose poorly.', view: 'judge' },
+      { text: 'He is probably not that involved in the specifics of my decisions.', view: 'distant' }
+    ]
+  },
+  {
+    q: 'After you have done something you know was wrong, how do you feel toward God?',
+    answers: [
+      { text: 'I worry that God is disappointed and pulling away from me.', view: 'judge' },
+      { text: 'I believe God still loves me and forgiveness is available.', view: 'loving' },
+      { text: 'I wonder if I have stepped outside the plan He had for me.', view: 'micromanager' },
+      { text: 'I do not really think much about God\u2019s reaction at all.', view: 'distant' }
+    ]
+  },
+  {
+    q: 'Which word or phrase feels most true about God to you right now?',
+    answers: [
+      { text: 'Distant \u2014 present somewhere, but not close to my everyday life.', view: 'distant' },
+      { text: 'Watchful \u2014 aware of everything I do and expecting me to measure up.', view: 'judge' },
+      { text: 'Directing \u2014 guiding every detail and expecting me to follow precisely.', view: 'micromanager' },
+      { text: 'Near \u2014 personally present and genuinely for me.', view: 'loving' }
+    ]
+  }
+];
+const ADMIN_PASS = "cbc2024";
+const SHEETS_URL = "YOUR_APPS_SCRIPT_URL";
+
+async function postToSheets(record) {
+  try { await fetch(SHEETS_URL, { method:"POST", mode:"no-cors", headers:{"Content-Type":"application/json"}, body:JSON.stringify(record) }); } catch(e) { console.warn(e); }
+}
+async function fetchFromSheets() {
+  try { const r = await fetch(SHEETS_URL + "?action=read"); const d = await r.json(); return Array.isArray(d) ? d : []; } catch(e) { return []; }
+}
+
+let S = {
+  screen: "intro",
+  name: "",
+  age: "",
+  gender: "",
+  marital: "",
+  areaIdx: 0,
+  stageGuess: 2,
+  direction: null,
+  results: {},
+  history: [],
+  godView: null,
+  godQIdx: 0,
+  godScores: { distant:0, judge:0, micromanager:0, loving:0 },
+  godAnswers: [],
+  income: "",
+  children: "",
+  political: "",
+  years: ""
+};
+
+
+function catTag(cat) {
+  const cls = cat==="OUT"?"tag-out":cat==="UP"?"tag-up":"tag-in";
+  return `<span class="cat-tag ${cls}">${cat}</span>`;
+}
+
+function pips(stage, cls="pip", activeCls="on", count=5) {
+  return Array.from({length:count},(_,i)=>`<div class="${cls}${i<stage?' '+activeCls:''}"></div>`).join('');
+}
+
+function renderIntro() {
+  const chips = AREAS.map(a=>`<div class="area-chip">${a.name}</div>`).join('');
+  return `<div class="card">
+    <p class="intro-eyebrow">Discipleship Assessment</p>
+    <h1 class="intro-title">Where are you on your faith journey?</h1>
+    <p class="intro-body">For each of the ten areas below, you'll read a statement and tell us how closely it describes you. Your answers shape the next question. There are no right or wrong responses — just honest reflection on where you are right now.</p>
+    <div class="areas-grid">${chips}</div>
+    <div style="background:var(--gray-100);border-left:3px solid var(--gray-400);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:0.875rem 1rem;margin-bottom:0.25rem;">
+      <p style="font-size:12px;color:var(--text-2);line-height:1.7;"><strong style="color:var(--text);">Quick note:</strong> We are going to ask a series of demographic questions. They are intended to help us understand the collective discipleship experience rather than particular information about one particular person. All personalized information will be protected from distribution and unnecessary exposure.</p>
+    </div>
+    <p class="demo-section-label">About you</p>
+    <div class="field-group">
+      <label class="field-label" for="nameInput">Your name <span style="font-weight:400;color:var(--text-3);">(optional)</span></label>
+      <input class="field-input" id="nameInput" type="text" placeholder="First and last name" value="${S.name}">
+    </div>
+    <div class="fields-row">
+      <div class="field-group">
+        <label class="field-label" for="ageInput">Age <span class="req">*</span></label>
+        <input class="field-input" id="ageInput" type="number" min="13" max="110" placeholder="e.g. 34" value="${S.age||''}">
+        <span class="field-error" id="ageError">Please enter your age.</span>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="genderInput">Gender <span class="req">*</span></label>
+        <select class="field-select" id="genderInput">
+          <option value="" ${!S.gender?'selected':''}>Select…</option>
+          <option value="Male" ${S.gender==='Male'?'selected':''}>Male</option>
+          <option value="Female" ${S.gender==='Female'?'selected':''}>Female</option>
+          <option value="Non-binary" ${S.gender==='Non-binary'?'selected':''}>Non-binary</option>
+          <option value="Prefer not to say" ${S.gender==='Prefer not to say'?'selected':''}>Prefer not to say</option>
+        </select>
+        <span class="field-error" id="genderError">Please select your gender.</span>
+      </div>
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="maritalInput">Marital status <span class="req">*</span></label>
+      <select class="field-select" id="maritalInput">
+        <option value="" ${!S.marital?'selected':''}>Select…</option>
+        <option value="Single" ${S.marital==='Single'?'selected':''}>Single</option>
+        <option value="Married" ${S.marital==='Married'?'selected':''}>Married</option>
+        <option value="Divorced" ${S.marital==='Divorced'?'selected':''}>Divorced</option>
+        <option value="Widow/Widower" ${S.marital==='Widow/Widower'?'selected':''}>Widow / Widower</option>
+      </select>
+      <span class="field-error" id="maritalError">Please select your marital status.</span>
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="incomeInput">Household income range <span class="req">*</span></label>
+      <select class="field-select" id="incomeInput">
+        <option value="" ${!S.income?'selected':''}>Select…</option>
+        <option value="Under $25,000" ${S.income==='Under $25,000'?'selected':''}>Under $25,000</option>
+        <option value="$25,000–$49,999" ${S.income==='$25,000–$49,999'?'selected':''}>$25,000 – $49,999</option>
+        <option value="$50,000–$74,999" ${S.income==='$50,000–$74,999'?'selected':''}>$50,000 – $74,999</option>
+        <option value="$75,000–$99,999" ${S.income==='$75,000–$99,999'?'selected':''}>$75,000 – $99,999</option>
+        <option value="$100,000–$149,999" ${S.income==='$100,000–$149,999'?'selected':''}>$100,000 – $149,999</option>
+        <option value="$150,000 or more" ${S.income==='$150,000 or more'?'selected':''}>$150,000 or more</option>
+        <option value="Prefer not to say" ${S.income==='Prefer not to say'?'selected':''}>Prefer not to say</option>
+      </select>
+      <span class="field-error" id="incomeError">Please select your household income range.</span>
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="childrenInput">Children under 18 living with you <span class="req">*</span></label>
+      <select class="field-select" id="childrenInput">
+        <option value="" ${!S.children?'selected':''}>Select…</option>
+        <option value="None" ${S.children==='None'?'selected':''}>None</option>
+        <option value="1" ${S.children==='1'?'selected':''}>1</option>
+        <option value="2" ${S.children==='2'?'selected':''}>2</option>
+        <option value="3" ${S.children==='3'?'selected':''}>3</option>
+        <option value="4 or more" ${S.children==='4 or more'?'selected':''}>4 or more</option>
+      </select>
+      <span class="field-error" id="childrenError">Please select an option.</span>
+    </div>
+    <div class="fields-row">
+      <div class="field-group">
+        <label class="field-label" for="politicalInput">Political lean <span class="req">*</span></label>
+        <select class="field-select" id="politicalInput">
+          <option value="" ${!S.political?'selected':''}>Select…</option>
+          <option value="Liberal" ${S.political==='Liberal'?'selected':''}>Liberal</option>
+          <option value="Moderate" ${S.political==='Moderate'?'selected':''}>Moderate</option>
+          <option value="Conservative" ${S.political==='Conservative'?'selected':''}>Conservative</option>
+          <option value="Prefer not to say" ${S.political==='Prefer not to say'?'selected':''}>Prefer not to say</option>
+        </select>
+        <span class="field-error" id="politicalError">Please select an option.</span>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="yearsInput">Years at Chesterfield Baptist <span class="req">*</span></label>
+        <select class="field-select" id="yearsInput">
+          <option value="" ${!S.years?'selected':''}>Select…</option>
+          <option value="Less than 1" ${S.years==='Less than 1'?'selected':''}>Less than 1 year</option>
+          <option value="2–3 years" ${S.years==='2–3 years'?'selected':''}>2–3 years</option>
+          <option value="3–5 years" ${S.years==='3–5 years'?'selected':''}>3–5 years</option>
+          <option value="5+ years" ${S.years==='5+ years'?'selected':''}>5+ years</option>
+        </select>
+        <span class="field-error" id="yearsError">Please select an option.</span>
+      </div>
+    </div>
+    <button class="start-btn" onclick="startSurvey()">Begin the assessment →</button>
+  </div>`;
+}
+
+function renderQuestion() {
+  const area = AREAS[S.areaIdx];
+  const q = area.questions[S.stageGuess - 1];
+  const pct = Math.round((S.areaIdx / AREAS.length) * 100);
+  return `
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span>Area ${S.areaIdx+1} of ${AREAS.length}</span>
+        <span>${pct}% complete</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+    </div>
+    <div class="card">
+      <div class="cat-row">${catTag(area.cat)}<span class="cat-name">${area.name}</span></div>
+      <p class="q-text">Does this sound like you?<br>${q.text}</p>
+      <button class="choice-btn" onclick="handleChoice('yes')">
+        <span class="label">Yes, this is definitely me</span>
+        <span class="desc">This statement fits how I actually live or think right now.</span>
+      </button>
+      <button class="choice-btn" onclick="handleChoice('kinda')">
+        <span class="label">Kind of sounds like me</span>
+        <span class="desc">There's something here, but it's not quite where I am.</span>
+      </button>
+      <button class="choice-btn" onclick="handleChoice('no')">
+        <span class="label">No, this doesn't sound like me</span>
+        <span class="desc">This statement doesn't describe where I currently am.</span>
+      </button>
+    </div>
+    <div class="nav-row">
+      <span class="area-counter">${area.name}</span>
+      ${S.history.length>0?'<button class="back-btn" onclick="goBack()">← Back</button>':'<span></span>'}
+    </div>`;
+}
+
+function renderGodMe() {
+  const qi = S.godQIdx;
+  const totalQ = GOD_QUESTIONS.length;
+  const basePct = Math.round((AREAS.length / (AREAS.length + 1)) * 100);
+  const pct = Math.round(basePct + (qi / totalQ) * (100 - basePct));
+  const qObj = GOD_QUESTIONS[qi];
+  const answers = qObj.answers.map((a, i) => `
+    <button class="choice-btn" onclick="answerGodQ(${i})">
+      <span class="desc" style="color:var(--text);">${a.text}</span>
+    </button>`).join('');
+  return `
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span>God &amp; Me &mdash; Question ${qi + 1} of ${totalQ}</span>
+        <span>${pct}% complete</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+    </div>
+    <div class="card">
+      <div class="cat-row">
+        <span class="cat-tag" style="background:#F0EDF8;color:#534AB7;">GOD &amp; ME</span>
+        <span class="cat-name">God and Me</span>
+      </div>
+      <p class="q-text">${qObj.q}</p>
+      ${answers}
+    </div>
+    <div class="nav-row">
+      <span class="area-counter">Question ${qi + 1} of ${totalQ}</span>
+      ${qi > 0 ? '<button class="back-btn" onclick="godQBack()">&#8592; Back</button>' : '<span></span>'}
+    </div>`;
+}
+
+function answerGodQ(answerIdx) {
+  const qi = S.godQIdx;
+  const view = GOD_QUESTIONS[qi].answers[answerIdx].view;
+  S.godAnswers[qi] = view;
+  S.godScores[view] = (S.godScores[view] || 0) + 1;
+  if (qi + 1 < GOD_QUESTIONS.length) {
+    S.godQIdx++;
+    render();
+  } else {
+    const winner = Object.entries(S.godScores).sort((a,b) => b[1]-a[1])[0][0];
+    S.godView = GOD_VIEWS.findIndex(v => v.id === winner);
+    submitResults();
+  }
+}
+
+function godQBack() {
+  if (S.godQIdx === 0) return;
+  // Undo last answer: subtract the score we added on that step
+  // We don't know which answer they picked, so we reset scores and replay
+  // Simple approach: decrement index and re-tally from scratch isn't possible without history
+  // So store godAnswers in state
+  S.godQIdx--;
+  const undoneView = S.godAnswers[S.godQIdx];
+  S.godScores[undoneView] = Math.max(0, (S.godScores[undoneView] || 1) - 1);
+  S.godAnswers.splice(S.godQIdx, 1);
+  render();
+}
+
+function switchTab(tab) {
+  document.getElementById('panel-visual').style.display = tab==='visual' ? '' : 'none';
+  document.getElementById('panel-detail').style.display = tab==='detail' ? '' : 'none';
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+}
+
+function drawRadar() {
+  const canvas = document.getElementById('radarChart');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0,0,W,H);
+  const labels = AREAS.map(a=>a.name);
+  const values = AREAS.map(a=>S.results[a.id]||1);
+  const n = labels.length;
+  const cx = W/2, cy = H/2+10;
+  const r = Math.min(W,H)*0.36;
+  const angleStep = (Math.PI*2)/n;
+  const startAngle = -Math.PI/2;
+  function pt(i,val) { const angle=startAngle+i*angleStep; const frac=(val-1)/4; return [cx+Math.cos(angle)*r*frac, cy+Math.sin(angle)*r*frac]; }
+  function ptFull(i,frac) { const angle=startAngle+i*angleStep; return [cx+Math.cos(angle)*r*frac, cy+Math.sin(angle)*r*frac]; }
+  const gridColor='rgba(0,0,0,0.07)', textColor='#9A9993', fillColor='rgba(83,74,183,0.15)', strokeColor='#534AB7';
+  for (let ring=1;ring<=5;ring++) { ctx.beginPath(); for(let i=0;i<n;i++){const[x,y]=ptFull(i,ring/5);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);} ctx.closePath(); ctx.strokeStyle=gridColor; ctx.lineWidth=0.8; ctx.stroke(); }
+  for (let i=0;i<n;i++) { const[x,y]=ptFull(i,1); ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(x,y); ctx.strokeStyle=gridColor; ctx.lineWidth=0.8; ctx.stroke(); }
+  ctx.beginPath(); values.forEach((v,i)=>{const[x,y]=pt(i,v);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}); ctx.closePath(); ctx.fillStyle=fillColor; ctx.fill(); ctx.strokeStyle=strokeColor; ctx.lineWidth=2; ctx.stroke();
+  values.forEach((v,i)=>{const[x,y]=pt(i,v);ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fillStyle=strokeColor;ctx.fill();});
+  ctx.font='11px Inter,system-ui,sans-serif'; ctx.fillStyle=textColor; ctx.textAlign='center';
+  for(let i=0;i<n;i++){const angle=startAngle+i*angleStep;const lx=cx+Math.cos(angle)*(r+24);const ly=cy+Math.sin(angle)*(r+24);const words=labels[i].split(' ');if(words.length>2){ctx.fillText(words.slice(0,2).join(' '),lx,ly-6);ctx.fillText(words.slice(2).join(' '),lx,ly+8);}else if(words.length===2){ctx.fillText(words[0],lx,ly-5);ctx.fillText(words[1],lx,ly+8);}else{ctx.fillText(labels[i],lx,ly);}}
+}
+
+function toggleLearnMore(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
+const AREA_LEARN_MORE = {
+  'outreach': `
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">What is Community Outreach &amp; Partnerships?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Community outreach and partnerships are often critical to the success of a local church. Outreach is about serving and engaging with people outside the church while partnerships allow the church to accomplish more than it could on its own.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Why do partnerships matter?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">No church has unlimited resources (let\u2019s be honest \u2014 most have VERY limited). By partnering with schools, nonprofits, businesses, other churches, community organizations, or local businesses, a church can: reach more people, offer additional services, address larger community needs, and avoid duplicating efforts.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">What does outreach look like?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Outreach allows the walls of the church to get broken down by the work done by the hands of those following Christ. Examples include feeding the hungry, care for the elderly, supporting families in need, mentoring students, or visiting the sick, infirm, or incarcerated \u2014 so that they know the love of Jesus is always present regardless of their circumstances.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Did you know?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Chesterfield Baptist Church already has a <a href="https://www.chesterfieldbc.org/adults" target="_blank" style="color:var(--purple-600);">food pantry</a>, <a href="https://www.chesterfieldbc.org/adults" target="_blank" style="color:var(--purple-600);">elderly support care</a>, and a <a href="https://www.chesterfieldbc.org/adults" target="_blank" style="color:var(--purple-600);">visitation program</a>.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">If this is a growth area for you\u2026</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);">Consider reviewing these pre-existing programs, creating a new outreach program, or identifying community organizations that might partner with our church community to spread the hands of Jesus further than we could imagine!</p>
+  `,
+  'evangelism': `
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">What is Evangelism?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Evangelism is the act of sharing the good news (aka \u201cthe gospel\u201d) of Jesus Christ with others, inviting them to respond in faith and become followers of Jesus as well. Can you find that in the Bible? You bet! Try <a href="https://www.biblegateway.com/passage/?search=John+3%3A16&version=NIV" target="_blank" style="color:var(--purple-600);">John 3:16</a>, <a href="https://www.biblegateway.com/passage/?search=Romans+3%3A23&version=NIV" target="_blank" style="color:var(--purple-600);">Romans 3:23</a>, <a href="https://www.biblegateway.com/passage/?search=Romans+6%3A26&version=NIV" target="_blank" style="color:var(--purple-600);">Romans 6:26</a>, or <a href="https://www.biblegateway.com/passage/?search=1+Corinthians+15%3A1-4&version=NIV" target="_blank" style="color:var(--purple-600);">1 Corinthians 15:1\u20134</a>.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">What does it look like?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Evangelism typically looks like 1:1 conversations about faith, sharing a personal testimony about how Jesus has impacted one\u2019s life, inviting someone to church, or answering questions from friends and neighbors about following Jesus.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Want to grow in this area?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);">If you\u2019re not sure how to explain the good news, listen to <a href="#" onclick="return false;" style="color:var(--purple-600);">[insert link]</a> or read <a href="#" onclick="return false;" style="color:var(--purple-600);">[insert resource]</a>. We also plan to offer classes and practical experiences on evangelism in the near future. Sign up to our various communication pathways to learn more.</p>
+  `,
+  'fin-generosity': `
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">What is Financial Generosity?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Financial generosity is much more than giving money to the church (or other worthwhile causes). It is a practice of recognizing that everything ultimately belongs to God (see <a href="https://www.biblegateway.com/passage/?search=Psalm+24%3A1&version=NIV" target="_blank" style="color:var(--purple-600);">Psalm 24:1</a>) and using the resources He has entrusted to you to care for others and advance His purposes.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">It\u2019s not about the amount</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Just like the widow in <a href="https://www.biblegateway.com/passage/?search=Mark+12%3A41-44&version=NIV" target="_blank" style="color:var(--purple-600);">Mark 12:41\u201344</a> who gave two small coins \u2014 everything she had \u2014 it is not about how much money you give, but rather a question of faithfully stewarding what God has given you. In fact, \u201cGod loves a cheerful giver\u201d (<a href="https://www.biblegateway.com/passage/?search=2+Corinthians+9%3A7&version=NIV" target="_blank" style="color:var(--purple-600);">2 Corinthians 9:7</a>).</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">What does your generosity make possible?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Good stewardship of people\u2019s financial generosity helps Chesterfield Baptist Church <a href="https://www.chesterfieldbc.org/adults" target="_blank" style="color:var(--purple-600);">care for the homeless</a>, <a href="https://www.chesterfieldbc.org/adults" target="_blank" style="color:var(--purple-600);">support families in need</a>, support hardships in the community, and support all the other various programs as well as the pastoral staff.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Generosity as worship</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;"><a href="https://www.biblegateway.com/passage/?search=Matthew+6%3A21&version=NIV" target="_blank" style="color:var(--purple-600);">Matthew 6:21</a> says, \u201cWhere your treasure is, there your heart will be also.\u201d If you are struggling with financial generosity as part of your discipleship journey, start by reflecting and praying on whether your treasure \u2014 however big or small it may be \u2014 aligns to where your heart really is.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">A note on tithing</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">The goal is personal and spiritual transformation, not an arbitrary amount or percentage. The Bible references a 10% tithe as part of Israel\u2019s Old Testament law, but the New Testament focuses more on giving joyfully, regularly, and according to your means.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Ready to give?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Financial generosity is a blessing to both the giver and the receiver. If you feel compelled to give financially to Chesterfield Baptist, you can do so in person during church services or via the Church app.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Have questions?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);">If you have any questions about financial giving \u2014 either how or why \u2014 please contact <a href="mailto:office@chesterfieldbc.org" style="color:var(--purple-600);">office@chesterfieldbc.org</a>.</p>
+  `,
+  'time-generosity': `
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">What is Generosity of Time?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Generosity of time is the intentional giving of your attention, presence, abilities, and availability to God and to others for their good. Much like financial generosity, this type of behavior is a recognition that your time ultimately belongs to God.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">A helpful reframe</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">If financial generosity asks, \u201cHow should I use the money God has entrusted to me?\u201d then generosity of time asks, \u201cHow should I use the hours God has entrusted to me?\u201d</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Time is a gift</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Time is a gift from God and we should cherish it. God encourages us in <a href="https://www.biblegateway.com/passage/?search=Psalm+90%3A12&version=NIV" target="_blank" style="color:var(--purple-600);">Psalm 90:12</a> to seek a \u201cheart of wisdom\u201d \u2014 to recognize that time should be stewarded well so that our hours can help others in need.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Jesus modeled this</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Jesus frequently stopped for people \u2014 the woman who touched His cloak (<a href="https://www.biblegateway.com/passage/?search=Mark+5%3A25-34&version=NIV" target="_blank" style="color:var(--purple-600);">Mark 5:25\u201334</a>) or the blind beggar (<a href="https://www.biblegateway.com/passage/?search=Luke+18%3A35-43&version=NIV" target="_blank" style="color:var(--purple-600);">Luke 18:35\u201343</a>) \u2014 demonstrating that loving people often means being interruptible.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">What can it look like?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Generosity of time can include listening to others (without rushing or distractions), mentoring someone, volunteering (e.g. <a href="https://www.chesterfieldbc.org/adults" target="_blank" style="color:var(--purple-600);">homeless ministry</a>), helping a neighbor, caring for children (e.g. <a href="https://www.chesterfieldbc.org/adults" target="_blank" style="color:var(--purple-600);">volunteering for Foundation</a>) or the elderly, and/or <a href="https://www.chesterfieldbc.org/adults" target="_blank" style="color:var(--purple-600);">praying with and for others</a> \u2014 even if you don\u2019t know them personally.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Love takes time</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">These examples are often thought of as expressions of love \u2014 and love cannot be given quickly. It takes personal, engaged, unhurried time.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Want to learn more?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);">If you would like more information on how to spend your time in a wise and loving way, feel free to contact <a href="mailto:office@chesterfieldbc.org" style="color:var(--purple-600);">office@chesterfieldbc.org</a>.</p>
+  `,
+  'prayer': `
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">What are Prayer &amp; Meditation?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Prayer and meditation are related but distinct practices. Prayer is primarily speaking and listening to God as part of our relationship with Him. Meditation is dwelling deeply on God\u2019s truth so that it shapes your mind, heart, and actions. Together they form a rhythm of connection with God.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">The deeper purpose</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">The ultimate purpose is not merely to ask for things or feel peaceful, but to have a deeper connection to God and become more like Christ.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Transformed by renewal</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">The apostle Paul wrote in <a href="https://www.biblegateway.com/passage/?search=Romans+12%3A2&version=NIV" target="_blank" style="color:var(--purple-600);">Romans 12:2</a> about being \u201ctransformed by the renewing of your mind.\u201d Meditation contributes to that renewal by rooting our minds in God\u2019s truth.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">How did Jesus pray?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Jesus modeled prayer in solitude (<a href="https://www.biblegateway.com/passage/?search=Mark+1%3A35&version=NIV" target="_blank" style="color:var(--purple-600);">Mark 1:35</a>), before decisions (<a href="https://www.biblegateway.com/passage/?search=Luke+6%3A12-13&version=NIV" target="_blank" style="color:var(--purple-600);">Luke 6:12\u201313</a>), for others (<a href="https://www.biblegateway.com/passage/?search=John+17&version=NIV" target="_blank" style="color:var(--purple-600);">John 17</a>), and with structure like the Lord\u2019s Prayer (<a href="https://www.biblegateway.com/passage/?search=Matthew+6%3A9-13&version=NIV" target="_blank" style="color:var(--purple-600);">Matthew 6:9\u201313</a>).</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Start small</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Scripture calls us to meditate on God day and night (<a href="https://www.biblegateway.com/passage/?search=Joshua+1%3A8&version=NIV" target="_blank" style="color:var(--purple-600);">Joshua 1:8</a>, <a href="https://www.biblegateway.com/passage/?search=Psalm+1&version=NIV" target="_blank" style="color:var(--purple-600);">Psalm 1</a>). Start small: pray once a day and read one short passage of scripture.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Still struggling?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);"><a href="https://www.biblegateway.com/passage/?search=Romans+8%3A26-27&version=NIV" target="_blank" style="color:var(--purple-600);">Romans 8:26\u201327</a>: \u201cThe Holy Spirit helps us in our weakness\u2026 the Spirit intercedes for us with groanings too deep for words.\u201d Do your best and the Holy Spirit will take care of the rest!</p>
+  `,
+  'worship': `
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">What is Worship?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Worship is the response of a person\u2019s whole life to the worthiness of God \u2014 recognizing who God is and responding with love, obedience, gratitude, and devotion. It\u2019s much more than singing on Sunday.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Worship begins with God\u2019s worth</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;"><a href="https://www.biblegateway.com/passage/?search=Revelation+4%3A11&version=NIV" target="_blank" style="color:var(--purple-600);">Revelation 4:11</a>: \u201cWorthy are you, our Lord and God, to receive glory and honor and power\u2026\u201d</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Worship includes many things</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Singing, prayer, reading scripture, obeying scripture, giving generously, serving others, forgiving others, confessing sin, thanking God, celebrating communion, and living faithfully every day.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Want to take a step?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);">Begin the day by thanking God. <a href="https://www.chesterfieldbc.org/adults" target="_blank" style="color:var(--purple-600);">Sing [music program]</a> in church. <a href="https://createdisciples.com/top-11-best-bible-reading-plans/?gad_source=1&gad_campaignid=6616722150&gbraid=0AAAAADKxnM-Baz1qkDyss6v5jxgi1ysdv&gclid=Cj0KCQjwm8bTBhDWARIsAC9Hi8k2jdLf4p64rUANnXOSeuxUHRh0A0pcfsT500DwBzrrcCVpnk15mJAaAsmpEALw_wcB" target="_blank" style="color:var(--purple-600);">Read scripture</a> with a desire to know God. <a href="https://www.chesterfieldbc.org/adults" target="_blank" style="color:var(--purple-600);">Pray for others</a> in need. Stop, admire a sunset, and praise the Creator.</p>
+  `,
+  'attendance': `
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">We get it</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">You are busy. Life is loaded with activities and other time commitments. It\u2019s also hard and awkward sometimes to be thrown into an environment where you may not know people. The beauty is \u2014 you likely aren\u2019t the only one.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">But God wants us to meet together</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;"><a href="https://www.biblegateway.com/passage/?search=Hebrews+10%3A24-25&version=NIV" target="_blank" style="color:var(--purple-600);">Hebrews 10:24\u201325</a> says to \u201cnot neglect to meet together\u2026 [to] encourage one another\u2026\u201d and <a href="https://www.biblegateway.com/passage/?search=Acts+2%3A42&version=NIV" target="_blank" style="color:var(--purple-600);">Acts 2:42</a> shows the early church met together regularly.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">The church is a community</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Scripture describes the church as a body (<a href="https://www.biblegateway.com/passage/?search=1+Corinthians+12&version=NIV" target="_blank" style="color:var(--purple-600);">1 Corinthians 12</a>), a family (<a href="https://www.biblegateway.com/passage/?search=Ephesians+2%3A19&version=NIV" target="_blank" style="color:var(--purple-600);">Ephesians 2:19</a>), and a flock (<a href="https://www.biblegateway.com/passage/?search=Acts+20%3A28&version=NIV" target="_blank" style="color:var(--purple-600);">Acts 20:28</a>). What would happen to your body if your arm, knee, or nose was not present?</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Ways to attend</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">We meet every Sunday at 10:30 am for our <a href="https://www.chesterfieldbc.org/church-online" target="_blank" style="color:var(--purple-600);">shared community service</a>. We also offer <a href="https://www.chesterfieldbc.org/adults" target="_blank" style="color:var(--purple-600);">small groups</a> and <a href="https://www.chesterfieldbc.org/adults" target="_blank" style="color:var(--purple-600);">classes</a> on Sunday mornings at 9:30 am and other times through the week.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">You are always welcome</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);">You aren\u2019t going to be judged for missing church \u2014 just know you are always welcome. If you have any special needs that would make attendance easier, just <a href="#" onclick="return false;" style="color:var(--purple-600);">let us know [insert email]</a>.</p>
+  `,
+  'learning': `
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Why does Learning &amp; Connection matter?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">God intends for believers to be transformed into the likeness of Christ \u2014 and that takes time and refinement. Like the Grand Canyon or the Sistine Chapel, your spiritual journey takes dedication, practice, and refinement.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Scripture transforms</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Scripture doesn\u2019t simply inform us \u2014 it transforms and renews us (<a href="https://www.biblegateway.com/passage/?search=Romans+12%3A2&version=NIV" target="_blank" style="color:var(--purple-600);">Romans 12:2</a>). It\u2019s all about becoming more like Jesus.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Learning also protects us</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Staying grounded prevents us from being tossed about by every wind of doctrine (<a href="https://www.biblegateway.com/passage/?search=Ephesians+4%3A14&version=NIV" target="_blank" style="color:var(--purple-600);">Ephesians 4:14</a>).</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Ready to go deeper?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);">Consider one of our <a href="https://www.chesterfieldbc.org/adults" target="_blank" style="color:var(--purple-600);">small group offerings</a>, our <a href="https://createdisciples.com/top-11-best-bible-reading-plans/?gad_source=1&gad_campaignid=6616722150&gbraid=0AAAAADKxnM-Baz1qkDyss6v5jxgi1ysdv&gclid=Cj0KCQjwm8bTBhDWARIsAC9Hi8k2jdLf4p64rUANnXOSeuxUHRh0A0pcfsT500DwBzrrcCVpnk15mJAaAsmpEALw_wcB" target="_blank" style="color:var(--purple-600);">Bible reading plan</a>, or <a href="https://www.chesterfieldbc.org/about" target="_blank" style="color:var(--purple-600);">contacting one of our leadership team</a>.</p>
+  `,
+  'service': `
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">What is Service?</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;">Service is willingly using your time, abilities, and resources to meet the needs of others in a way that reflects the character of Christ and glorifies God. It is the practical expression of love for God and others.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Jesus is the model</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;"><a href="https://www.biblegateway.com/passage/?search=Mark+10%3A45&version=NIV" target="_blank" style="color:var(--purple-600);">Mark 10:45</a>: \u201cFor even the Son of Man came not to be served, but to serve and give his life as a ransom for many.\u201d</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Service starts outside the church</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;"><a href="https://www.biblegateway.com/passage/?search=Colossians+3%3A23&version=NIV" target="_blank" style="color:var(--purple-600);">Colossians 3:23</a>: \u201cWhatever you do, work heartily, as for the Lord.\u201d Loving your family, being a good neighbor, doing honest work \u2014 these are all acts of service.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">Your gifts belong inside the church too</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:0.75rem;"><a href="https://www.biblegateway.com/passage/?search=1+Peter+4%3A10&version=NIV" target="_blank" style="color:var(--purple-600);">1 Peter 4:10</a>: \u201cAs each has received a gift, use it to serve one another.\u201d If you\u2019d like to learn more about your spiritual gifts, <a href="#" onclick="return false;" style="color:var(--purple-600);">start here [insert link]</a>.</p>
+    <p style="font-size:13px;font-weight:600;color:var(--purple-900);margin-bottom:0.5rem;">A good gut check</p>
+    <p style="font-size:13px;line-height:1.75;color:var(--purple-900);">Make sure you are not serving to impress others (<a href="https://www.biblegateway.com/passage/?search=Matthew+6%3A1-4&version=NIV" target="_blank" style="color:var(--purple-600);">Matthew 6:1\u20134</a>). Ask: Does this honor God? Does it genuinely help others? Am I serving out of love?</p>
+  `
+};
+
+function renderReport() {
+  const name = S.name || 'Your';
+  const stages = AREAS.map(a=>S.results[a.id]);
+  const avg = Math.round(stages.reduce((a,b)=>a+b,0)/stages.length);
+  const minS = Math.min(...stages), maxS = Math.max(...stages);
+
+  // God view: primary = highest score, secondary = runner-up
+  const sorted = Object.entries(S.godScores).sort((a,b)=>b[1]-a[1]);
+  const primaryId = sorted[0]?.[0];
+  const secondaryId = sorted[1]?.[0];
+  const primaryView = primaryId ? GOD_VIEWS.find(v=>v.id===primaryId) : null;
+  const secondaryView = secondaryId ? GOD_VIEWS.find(v=>v.id===secondaryId) : null;
+  const primaryScore = sorted[0]?.[1]||0;
+  const secondaryScore = sorted[1]?.[1]||0;
+
+  const PILLARS = [
+    { label:'UP', title:'Jesus at the Center', ids:['prayer','worship'] },
+    { label:'IN', title:'Life Together', ids:['attendance','learning','service','fin-generosity','time-generosity'] },
+    { label:'OUT', title:'Live on Mission', ids:['outreach','evangelism'] }
+  ];
+  const pillarsHtml = PILLARS.map(p => {
+    const areaList = AREAS.filter(a=>p.ids.includes(a.id));
+    const avgP = areaList.reduce((s,a)=>s+(S.results[a.id]||0),0)/areaList.length;
+    const avgDisp = avgP.toFixed(1);
+    const c = scoreColors(avgP);
+    const areaItems = areaList.map(a => {
+      const ac = scoreColors(S.results[a.id]);
+      return `<div style="display:flex;justify-content:space-between;align-items:center;font-size:11px;color:${c.text};padding:3px 0;border-top:0.5px solid ${c.border}44;">
+        <span>${a.name}</span>
+        <span style="font-weight:700;font-size:12px;background:${ac.bg};color:${ac.text};border:0.5px solid ${ac.border}66;border-radius:4px;padding:1px 6px;">${S.results[a.id]}</span>
+      </div>`;
+    }).join('');
+    return `<div style="background:${c.bg};border:1.5px solid ${c.border};border-radius:var(--radius-sm);padding:0.875rem;">
+      <p style="font-size:10px;font-weight:700;letter-spacing:0.07em;color:${c.text};text-transform:uppercase;margin-bottom:2px;">${p.label}</p>
+      <p style="font-size:13px;font-weight:600;color:${c.text};margin-bottom:6px;line-height:1.3;">${p.title}</p>
+      <p style="font-size:28px;font-weight:700;color:${c.text};margin-bottom:6px;line-height:1;">${avgDisp} <span style="font-size:11px;font-weight:400;opacity:0.7;">/ 5</span></p>
+      ${areaItems}
+    </div>`;
+  }).join('');
+
+  const rows = AREAS.map(area => {
+    const stage = S.results[area.id];
+    const PIP_COLORS = ['#C83C3C','#CC781E','#BE9A14','#50A03C','#289146'];
+    const pipColor = PIP_COLORS[stage - 1];
+    const pipHtml = [1,2,3,4,5].map(i => {
+      if (i > stage) return `<div class="report-pip"></div>`;
+      return `<div class="report-pip" style="background:${pipColor} !important;"></div>`;
+    }).join('');
+    const learnMore = AREA_LEARN_MORE[area.id];
+    const learnLink = learnMore
+      ? `<button onclick="toggleLearnMore('lm-${area.id}')" style="display:inline-flex;align-items:center;gap:4px;margin-top:0.6rem;font-size:12px;color:var(--purple-600);background:none;border:none;border-bottom:1px solid var(--purple-100);cursor:pointer;font-family:inherit;padding:0;">Learn more about your rating \u2192</button>
+         <div id="lm-${area.id}" style="display:none;margin-top:0.75rem;background:var(--purple-50);border-left:3px solid var(--purple-600);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1rem;">${learnMore}</div>`
+      : `<span style="display:inline-block;margin-top:0.6rem;font-size:12px;color:var(--text-3);font-style:italic;">Learn more content coming soon</span>`;
+    return `<div class="report-area">
+      <div class="report-area-head">${catTag(area.cat)}<span class="report-area-name">${area.name}</span></div>
+      <div class="report-pip-row">${pipHtml}</div>
+      <p class="report-stage-name">Stage ${stage} \u2014 ${STAGE_NAMES[stage-1]}</p>
+      <p class="report-stage-desc">${area.stages[stage-1]}</p>
+      ${learnLink}
+    </div>`;
+  }).join('');
+
+  const dateStr = new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  const demoStr = [S.age ? `Age ${S.age}` : '', S.gender, S.marital, S.income, S.children ? `${S.children === 'None' ? 'No' : S.children} child${S.children === '1' ? '' : 'ren'} under 18` : '', S.political, S.years ? `${S.years} at CBC` : ''].filter(Boolean).join(' \u00b7 ');
+
+  // God & Me panel with primary + secondary
+  const godPanel = (primaryView && secondaryView) ? `
+    <div style="margin-top:1.5rem;">
+      <p class="section-label" style="margin-bottom:0.75rem;">God and Me \u2014 separate from your discipleship score</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:0.75rem;">
+        <div style="background:${primaryView.color.bg};border:1.5px solid ${primaryView.color.border};border-radius:var(--radius-sm);padding:1rem;">
+          <p style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:${primaryView.color.text};margin-bottom:4px;">Primary view</p>
+          <p style="font-size:22px;line-height:1;margin-bottom:4px;">${primaryView.icon}</p>
+          <p style="font-size:14px;font-weight:600;color:${primaryView.color.text};line-height:1.3;margin-bottom:3px;">${primaryView.label}</p>
+          <p style="font-size:11px;color:${primaryView.color.text};opacity:0.75;font-style:italic;line-height:1.4;">\u201c${primaryView.subtitle}\u201d</p>
+          <p style="font-size:11px;color:${primaryView.color.text};margin-top:6px;opacity:0.6;">${primaryScore} of ${GOD_QUESTIONS.length} answers</p>
+        </div>
+        <div style="background:${secondaryView.color.bg};border:1px dashed ${secondaryView.color.border};border-radius:var(--radius-sm);padding:1rem;opacity:0.85;">
+          <p style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:${secondaryView.color.text};margin-bottom:4px;">Secondary lean</p>
+          <p style="font-size:22px;line-height:1;margin-bottom:4px;">${secondaryView.icon}</p>
+          <p style="font-size:14px;font-weight:600;color:${secondaryView.color.text};line-height:1.3;margin-bottom:3px;">${secondaryView.label}</p>
+          <p style="font-size:11px;color:${secondaryView.color.text};opacity:0.75;font-style:italic;line-height:1.4;">\u201c${secondaryView.subtitle}\u201d</p>
+          <p style="font-size:11px;color:${secondaryView.color.text};margin-top:6px;opacity:0.6;">${secondaryScore} of ${GOD_QUESTIONS.length} answers</p>
+        </div>
+      </div>
+      <div style="background:${primaryView.color.bg};border:0.5px solid ${primaryView.color.border}66;border-radius:var(--radius-sm);padding:1.25rem;">
+        <p style="font-size:13px;font-weight:600;color:${primaryView.color.text};margin-bottom:0.5rem;">About your primary view</p>
+        <p style="font-size:13px;color:${primaryView.color.text};line-height:1.65;border-left:2px solid ${primaryView.color.border};padding-left:0.75rem;">${primaryView.description}</p>
+        ${secondaryScore > 0 && secondaryScore < primaryScore ? `<p style="font-size:12px;color:${primaryView.color.text};opacity:0.75;margin-top:0.75rem;font-style:italic;">Your secondary lean toward <strong>${secondaryView.label}</strong> suggests you also relate to God through the lens of \u201c${secondaryView.subtitle}.\u201d</p>` : ''}
+        <button onclick="toggleLearnMore('lm-godview')" style="display:inline-flex;align-items:center;gap:4px;margin-top:0.75rem;font-size:12px;color:${primaryView.color.border};background:none;border:none;border-bottom:1px solid ${primaryView.color.border}66;cursor:pointer;font-family:inherit;padding:0;">Learn more about your view of God \u2192</button>
+        <div id="lm-godview" style="display:none;margin-top:0.75rem;background:#fff;border:0.5px solid var(--border-2);border-radius:var(--radius-sm);padding:1.25rem;">
+          <p style="font-size:13px;line-height:1.75;color:var(--purple-900);margin-bottom:1rem;">Our vision of God is formed in many ways and often over many years. Sources from inside the church, our family, our friends, and our cultural influences all shape how we see the creator of the world. The \u201cGod and Me\u201d section of the discipleship survey establishes four categories of how we see God. The results show us the top two ways that you think of God. In reality these various concepts all have partial truths, but become misleading when we treat them as the holistic picture of God.</p>
+
+          <div style="background:#EEF2F7;border-left:3px solid #6B7FA3;border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1rem;margin-bottom:1rem;">
+            <p style="font-size:13px;font-weight:600;color:#3D4F6E;margin-bottom:0.5rem;">\u2601\uFE0F The Distant Deity</p>
+            <p style="font-size:13px;line-height:1.75;color:#3D4F6E;margin-bottom:0.5rem;">This concept projects a God who is not really interested in us and only appears periodically and for indeterminate reasons.</p>
+            <ul style="margin:0 0 0 1.1rem;padding:0;">
+              <li style="font-size:13px;line-height:1.75;color:#3D4F6E;margin-bottom:0.35rem;">This concept arises when prayers seem unanswered, when sickness and suffering exist, and God isn\u2019t physically visible.</li>
+              <li style="font-size:13px;line-height:1.75;color:#3D4F6E;margin-bottom:0.35rem;">But scripture consistently portrays God as deeply involved with His creation and personally invested in His people.</li>
+              <li style="font-size:13px;line-height:1.75;color:#3D4F6E;">Specifically, God creates humanity in His image (<a href="https://www.biblegateway.com/passage/?search=Genesis+1%3A27&version=NIV" target="_blank" style="color:#6B7FA3;">Genesis 1:27</a>), knows each of us intimately (<a href="https://www.biblegateway.com/passage/?search=Psalm+139&version=NIV" target="_blank" style="color:#6B7FA3;">Psalm 139</a>), hears prayers and enters covenants with His people \u2014 including sending His one and only Son Jesus to \u201cbecome flesh and dwell among us\u201d (<a href="https://www.biblegateway.com/passage/?search=John+1%3A14&version=NIV" target="_blank" style="color:#6B7FA3;">John 1:14</a>).</li>
+            </ul>
+          </div>
+
+          <div style="background:#FDF0EE;border-left:3px solid #B05040;border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1rem;margin-bottom:1rem;">
+            <p style="font-size:13px;font-weight:600;color:#7A2E20;margin-bottom:0.5rem;">\u2696\uFE0F The Demanding Judge</p>
+            <p style="font-size:13px;line-height:1.75;color:#7A2E20;margin-bottom:0.5rem;">This paints the picture of a God who is vindictive and will punish us for sins and misdeeds.</p>
+            <ul style="margin:0 0 0 1.1rem;padding:0;">
+              <li style="font-size:13px;line-height:1.75;color:#7A2E20;margin-bottom:0.35rem;">This concept is understandable if you\u2019ve experienced harsh religious environments and associate God with vindictive human authority figures.</li>
+              <li style="font-size:13px;line-height:1.75;color:#7A2E20;margin-bottom:0.35rem;">The Bible teaches that God hates evil and judges sin; however, God is also described as \u201ccompassionate and gracious, slow to anger, abounding in steadfast love\u2026\u201d (<a href="https://www.biblegateway.com/passage/?search=Exodus+34%3A6&version=NIV" target="_blank" style="color:#B05040;">Exodus 34:6</a>). Seems kind of like a parent who loves us but has to correct us from time to time.</li>
+              <li style="font-size:13px;line-height:1.75;color:#7A2E20;margin-bottom:0.35rem;">Jesus demonstrates this repeatedly \u2014 forgiving Peter after his denial, welcoming and dining with tax collectors, showing mercy to sinful people, and telling the famous Parable of the Prodigal Son.</li>
+              <li style="font-size:13px;line-height:1.75;color:#7A2E20;">The message that God can\u2019t wait to punish you is just wrong. God desires reconciliation and has made a way through belief in Jesus Christ.</li>
+            </ul>
+          </div>
+
+          <div style="background:#F0EEF8;border-left:3px solid #6B5EAA;border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1rem;margin-bottom:1rem;">
+            <p style="font-size:13px;font-weight:600;color:#3E3070;margin-bottom:0.5rem;">\uD83C\uDFAF The Deterministic Micromanager</p>
+            <p style="font-size:13px;line-height:1.75;color:#3E3070;margin-bottom:0.5rem;">This represents a God who wants to control every decision, action, or result in your life. Nearly all Christian traditions agree that God is not a cosmic control freak who manipulates every circumstance or eliminates all uncertainty.</p>
+            <ul style="margin:0 0 0 1.1rem;padding:0;">
+              <li style="font-size:13px;line-height:1.75;color:#3E3070;margin-bottom:0.35rem;">Jesus taught His followers to trust God and \u201cnot worry about tomorrow\u201d (<a href="https://www.biblegateway.com/passage/?search=Matthew+6%3A34&version=NIV" target="_blank" style="color:#6B5EAA;">Matthew 6:34</a>).</li>
+              <li style="font-size:13px;line-height:1.75;color:#3E3070;margin-bottom:0.35rem;">We seek dependence on God and understanding of His wisdom in what happens in our lives.</li>
+              <li style="font-size:13px;line-height:1.75;color:#3E3070;">Christians often mistake faithfulness with perfect planning, wisdom with complete certainty, and obedience with never making mistakes. Scripture instead portrays many faithful people \u2014 Abraham, Moses, Ruth, and Paul \u2014 walking by faith without knowing every step ahead.</li>
+            </ul>
+          </div>
+
+          <div style="background:#EEF8F0;border-left:3px solid #4A9060;border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1rem;">
+            <p style="font-size:13px;font-weight:600;color:#1E5C34;margin-bottom:0.5rem;">\u2764\uFE0F Loving and Caring</p>
+            <p style="font-size:13px;line-height:1.75;color:#1E5C34;margin-bottom:0.5rem;">According to scripture, \u201cGod is love\u201d (<a href="https://www.biblegateway.com/passage/?search=1+John+4%3A8&version=NIV" target="_blank" style="color:#4A9060;">1 John 4:8</a>) and \u201cwhile we were still sinners Christ died for us\u201d (<a href="https://www.biblegateway.com/passage/?search=Romans+5%3A8&version=NIV" target="_blank" style="color:#4A9060;">Romans 5:8</a>). However, if we stop there, we risk misunderstanding what biblical love means.</p>
+            <ul style="margin:0 0 0 1.1rem;padding:0;">
+              <li style="font-size:13px;line-height:1.75;color:#1E5C34;margin-bottom:0.35rem;">God is not mere approval, permissiveness, or indifference to sin.</li>
+              <li style="font-size:13px;line-height:1.75;color:#1E5C34;margin-bottom:0.35rem;">God calls His people to repentance and disciplines His children (<a href="https://www.biblegateway.com/passage/?search=Hebrews+12&version=NIV" target="_blank" style="color:#4A9060;">Hebrews 12</a>).</li>
+              <li style="font-size:13px;line-height:1.75;color:#1E5C34;margin-bottom:0.35rem;">God desires holiness and the ultimate good, even when it is difficult.</li>
+              <li style="font-size:13px;line-height:1.75;color:#1E5C34;margin-bottom:0.35rem;">Just like a loving parent, God doesn\u2019t affirm everything the child does \u2014 love sometimes corrects and redirects.</li>
+              <li style="font-size:13px;line-height:1.75;color:#1E5C34;margin-bottom:0.35rem;">Fundamentally, God is holy, yet merciful. He is just, yet gracious. He is sovereign, yet invites all of us into a relationship. He is a transcendent creator, but immediately available and present to everyone.</li>
+              <li style="font-size:13px;line-height:1.75;color:#1E5C34;">If you want to see this in action, review what Jesus did in His life \u2014 for Jesus says in scripture, \u201cwhoever has seen me has seen the Father\u201d (<a href="https://www.biblegateway.com/passage/?search=John+14%3A9&version=NIV" target="_blank" style="color:#4A9060;">John 14:9</a>).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>` : '';
+
+  return `<div class="card">
+    <div class="report-header">
+      <h1 class="report-name">${S.name ? S.name+"'s" : 'Your'} discipleship snapshot</h1>
+      <p class="report-meta">Taken ${dateStr} \u00b7 Chesterfield Baptist Church</p>
+      ${demoStr ? `<p class="report-meta" style="margin-top:2px;">${demoStr}</p>` : ''}
+    </div>
+    <div style="background:var(--teal-50);border:0.5px solid var(--teal-600)33;border-radius:var(--radius-sm);padding:1.25rem;margin-bottom:1.5rem;">
+      <p style="font-size:16px;font-weight:600;color:var(--teal-800);margin-bottom:0.5rem;">Amazing work!</p>
+      <p style="font-size:13px;color:var(--teal-800);line-height:1.75;margin-bottom:1rem;">Thank you for taking the time to better understand your own strengths when it comes to living more like Jesus. The following snapshot shows an overall average of the various discipleship categories we told you about at the beginning of the survey.</p>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;">
+        <p style="font-size:12px;color:var(--teal-800);line-height:1.65;"><strong>1. Overall Stage</strong> gives you a sense of how far along you are on your holistic journey to be like Jesus. This is not a judgement but rather a measurement that helps you (and the church) better support programming to support your journey.</p>
+        <p style="font-size:12px;color:var(--teal-800);line-height:1.65;"><strong>2. Strongest Area</strong> shows your strongest area of discipleship. This is exciting to know! This is the way you best connect and follow God\u2019s plan for you.</p>
+        <p style="font-size:12px;color:var(--teal-800);line-height:1.65;"><strong>3. Growth Opportunity</strong> shows a growth area within your discipleship journey. We all have ways we can grow and mature spiritually and this will help us all understand it fully.</p>
+      </div>
+    </div>
+    <div class="summary-strip">
+      ${(()=>{ const c=scoreColors(avg); return `<div style="background:${c.bg};border:1.5px solid ${c.border};border-radius:var(--radius-sm);padding:0.875rem;text-align:center;"><p style="font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:${c.text};opacity:0.75;margin-bottom:4px;">Overall stage</p><p style="font-size:28px;font-weight:700;color:${c.text};line-height:1;">${avg}</p><p style="font-size:11px;color:${c.text};opacity:0.8;margin-top:3px;">${STAGE_NAMES[avg-1]}</p></div>`; })()}
+      ${(()=>{ const c=scoreColors(maxS); return `<div style="background:${c.bg};border:1.5px solid ${c.border};border-radius:var(--radius-sm);padding:0.875rem;text-align:center;"><p style="font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:${c.text};opacity:0.75;margin-bottom:4px;">Strongest area</p><p style="font-size:28px;font-weight:700;color:${c.text};line-height:1;">${maxS}</p><p style="font-size:11px;color:${c.text};opacity:0.8;margin-top:3px;">${AREAS[stages.indexOf(maxS)].name.split(' ').slice(0,2).join(' ')}</p></div>`; })()}
+      ${(()=>{ const c=scoreColors(minS); return `<div style="background:${c.bg};border:1.5px solid ${c.border};border-radius:var(--radius-sm);padding:0.875rem;text-align:center;"><p style="font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:${c.text};opacity:0.75;margin-bottom:4px;">Growth opportunity</p><p style="font-size:28px;font-weight:700;color:${c.text};line-height:1;">${minS}</p><p style="font-size:11px;color:${c.text};opacity:0.8;margin-top:3px;">${AREAS[stages.indexOf(minS)].name.split(' ').slice(0,2).join(' ')}</p></div>`; })()}
+    </div>
+    <div style="margin-bottom:1rem;">
+      <div style="display:flex;gap:8px;margin-bottom:1rem;">
+        <button class="tab-btn active" id="tab-visual" onclick="switchTab('visual')">Visual overview</button>
+        <button class="tab-btn" id="tab-detail" onclick="switchTab('detail')">Detailed breakdown</button>
+      </div>
+      <div id="panel-visual">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:1.25rem;">${pillarsHtml}</div>
+        <canvas id="radarChart" width="560" height="320" style="width:100%;max-width:560px;display:block;margin:0 auto 0.5rem;"></canvas>
+        <p style="font-size:11px;color:var(--text-3);text-align:center;">Stage 1\u20135 across all nine areas</p>
+      </div>
+      <div id="panel-detail" style="display:none;">${rows}</div>
+    </div>
+    ${godPanel}
+    <div class="action-bar">
+      <button class="btn-icon btn-print" onclick="window.print()">\uD83D\uDDA8 Print this report</button>
+      <button class="btn-icon btn-copy" onclick="copyReport()">\u2398 Copy to clipboard</button>
+      <button class="btn-restart" onclick="restart()">Start over</button>
+    </div>
+  </div>`;
+}
+
+function renderAdminGate() {
+  return `<div class="card">
+    <h2 class="review-title">Admin access</h2>
+    <p class="review-subtitle" style="margin-bottom:1rem;">Enter the admin password to view the aggregated report.</p>
+    <div class="admin-pass-wrap">
+      <input class="admin-pass-input" id="passInput" type="password" placeholder="Password" onkeydown="if(event.key==='Enter')checkPass()">
+      <button class="btn-primary" style="flex:0;white-space:nowrap" onclick="checkPass()">View report</button>
+    </div>
+    <button class="btn-restart" onclick="restart()">← Back to survey</button>
+  </div>`;
+}
+
+async function renderAdmin() {
+  const app = document.getElementById('app');
+  app.innerHTML = '<div class="card"><p style="font-size:14px;color:var(--text-2);padding:1rem 0;">Loading responses...</p></div>';
+  const responses = await fetchFromSheets();
+  const n = responses.length;
+  if (n === 0) {
+    app.innerHTML = '<div class="card"><div class="admin-header"><h1 class="admin-title">Aggregated report</h1><p class="admin-meta">No responses yet.</p></div><button class="btn-secondary" onclick="restart()">Back to survey</button></div>';
+    return;
+  }
+  const agg = {};
+  AREAS.forEach(a => { agg[a.id] = [0,0,0,0,0]; });
+  responses.forEach(r => {
+    AREAS.forEach(a => {
+      const s = r.results ? r.results[a.id] : parseInt(r[a.name]||0);
+      if (s >= 1 && s <= 5) agg[a.id][s-1]++;
+    });
+  });
+  const aggRows = AREAS.map(area => {
+    const counts = agg[area.id];
+    const total = counts.reduce((a,b)=>a+b,0)||1;
+    const avg = counts.reduce((sum,c,i)=>sum+c*(i+1),0)/(total||1);
+    const bars = counts.map((c,i)=>
+      '<div class="agg-bar-wrap"><span class="agg-stage-label">'+STAGE_NAMES[i]+'</span><div class="agg-bar-outer"><div class="agg-bar-inner" style="width:'+Math.round(c/total*100)+'%"></div></div><span class="agg-count">'+c+'</span></div>'
+    ).join('');
+    return '<div class="agg-area"><p class="agg-area-name">'+catTag(area.cat)+' '+area.name+' <span style="font-weight:400;color:var(--text-3);font-size:12px;">avg '+avg.toFixed(1)+'</span></p>'+bars+'</div>';
+  }).join('');
+  const allAvgs = responses.map(r => {
+    const vals = AREAS.map(a => r.results ? (r.results[a.id]||0) : parseInt(r[a.name]||0));
+    return Math.round(vals.reduce((a,b)=>a+b,0)/vals.length);
+  });
+  const overallAvg = (allAvgs.reduce((a,b)=>a+b,0)/allAvgs.length).toFixed(1);
+  const respRows = responses.map(r => {
+    const vals = AREAS.map(a => r.results ? (r.results[a.id]||'-') : (r[a.name]||'-')).join(' | ');
+    const gvId = r.godView||'';
+    const godLabel = gvId ? (GOD_VIEWS.find(g=>g.id===gvId)||{label:gvId}).label : '';
+    const demo = [r.age?'Age '+r.age:'', r.gender, r.marital, r.income,
+      r.children?(r.children==='None'?'No children':r.children+' children'):'',
+      r.political, r.years?r.years+' at CBC':''].filter(Boolean).join(' | ');
+    return '<div class="respondent-row"><div><div class="respondent-name">'+(r.name||'Anonymous')+'</div><div class="respondent-stages" style="color:var(--text-3);font-size:11px;margin-bottom:1px;">'+demo+'</div><div class="respondent-stages">'+vals+'</div>'+(godLabel?'<div style="font-size:11px;color:var(--purple-600);">God and Me: '+godLabel+'</div>':'')+'</div><div style="text-align:right"><div class="respondent-date">'+(r.date||'')+'</div></div></div>';
+  }).join('');
+  const godHtml = GOD_VIEWS.map(gv => {
+    const count = responses.filter(r=>(r.godView||'')=== gv.id).length;
+    const pct = n > 0 ? Math.round(count/n*100) : 0;
+    return '<div style="background:'+gv.color.bg+';border:0.5px solid '+gv.color.border+'44;border-radius:var(--radius-sm);padding:0.75rem;"><p style="font-size:11px;font-weight:600;color:'+gv.color.text+';margin-bottom:4px;">'+gv.label+'</p><p style="font-size:20px;font-weight:700;color:'+gv.color.text+';line-height:1;">'+count+' <span style="font-size:11px;opacity:0.7;">('+pct+'%)</span></p></div>';
+  }).join('');
+  app.innerHTML = '<div class="card"><div class="admin-header"><h1 class="admin-title">Aggregated report</h1><p class="admin-meta">'+n+' response'+(n!==1?'s':'')+' | Overall avg stage: '+overallAvg+'</p></div><div class="admin-bar"><button class="btn-icon btn-print" onclick="window.print()">Print</button><button class="btn-icon btn-copy" onclick="exportCSV()">Export CSV</button><button class="btn-secondary btn-icon" onclick="restart()">Back</button></div><p class="section-label">Stage distribution by area</p>'+aggRows+'<hr class="divider"><p class="section-label">God and Me view distribution</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem;">'+godHtml+'</div><hr class="divider"><p class="section-label">Individual responses</p><div class="respondent-list">'+respRows+'</div></div>';
+}
+
+function scoreColors(avg) {
+  const stops = [
+    { bg:[254,235,235], border:[200,60,60],  text:[160,30,30]  }, // 1 - red
+    { bg:[254,241,225], border:[204,120,30], text:[160,80,10]  }, // 2 - orange
+    { bg:[254,250,220], border:[190,160,20], text:[130,105,10] }, // 3 - amber
+    { bg:[232,248,225], border:[80,160,60],  text:[40,120,30]  }, // 4 - yellow-green
+    { bg:[215,244,220], border:[40,140,70],  text:[20,100,45]  }, // 5 - green
+  ];
+  function lerp(a,b,t){return Math.round(a+(b-a)*t);}
+  const t = Math.max(0, Math.min(1, (avg - 1) / 4));
+  const scaled = t * 4;
+  const i = Math.min(3, Math.floor(scaled));
+  const f = (i === 3 && scaled >= 4) ? 1 : scaled - i;
+  const A = stops[i], B = stops[Math.min(4, i+1)];
+  return {
+    bg:     `rgb(${A.bg.map((v,j)=>lerp(v,B.bg[j],f))})`,
+    border: `rgb(${A.border.map((v,j)=>lerp(v,B.border[j],f))})`,
+    text:   `rgb(${A.text.map((v,j)=>lerp(v,B.text[j],f))})`
+  };
+}
+
+function render() {
+  const app = document.getElementById('app');
+  if (S.screen==='intro') app.innerHTML = renderIntro();
+  else if (S.screen==='question') app.innerHTML = renderQuestion();
+  else if (S.screen==='godme') app.innerHTML = renderGodMe();
+  else if (S.screen==='report') { app.innerHTML = renderReport(); setTimeout(drawRadar, 50); }
+  else if (S.screen==='admingate') app.innerHTML = renderAdminGate();
+  else if (S.screen==='admin') renderAdmin();
+}
+
+function startSurvey() {
+  const name = (document.getElementById('nameInput')||{}).value?.trim()||'';
+  const age = (document.getElementById('ageInput')||{}).value?.trim()||'';
+  const gender = (document.getElementById('genderInput')||{}).value||'';
+  const marital = (document.getElementById('maritalInput')||{}).value||'';
+  const income = (document.getElementById('incomeInput')||{}).value||'';
+  const children = (document.getElementById('childrenInput')||{}).value||'';
+  const political = (document.getElementById('politicalInput')||{}).value||'';
+  const years = (document.getElementById('yearsInput')||{}).value||'';
+  let valid = true;
+  const ageErr = document.getElementById('ageError');
+  const genderErr = document.getElementById('genderError');
+  const maritalErr = document.getElementById('maritalError');
+  const incomeErr = document.getElementById('incomeError');
+  const childrenErr = document.getElementById('childrenError');
+  const politicalErr = document.getElementById('politicalError');
+  const yearsErr = document.getElementById('yearsError');
+  if (!age || isNaN(age) || +age < 13 || +age > 110) { if(ageErr) ageErr.classList.add('show'); valid=false; } else { if(ageErr) ageErr.classList.remove('show'); }
+  if (!gender) { if(genderErr) genderErr.classList.add('show'); valid=false; } else { if(genderErr) genderErr.classList.remove('show'); }
+  if (!marital) { if(maritalErr) maritalErr.classList.add('show'); valid=false; } else { if(maritalErr) maritalErr.classList.remove('show'); }
+  if (!income) { if(incomeErr) incomeErr.classList.add('show'); valid=false; } else { if(incomeErr) incomeErr.classList.remove('show'); }
+  if (!children) { if(childrenErr) childrenErr.classList.add('show'); valid=false; } else { if(childrenErr) childrenErr.classList.remove('show'); }
+  if (!political) { if(politicalErr) politicalErr.classList.add('show'); valid=false; } else { if(politicalErr) politicalErr.classList.remove('show'); }
+  if (!years) { if(yearsErr) yearsErr.classList.add('show'); valid=false; } else { if(yearsErr) yearsErr.classList.remove('show'); }
+  if (!valid) return;
+  S.name = name;
+  S.age = age;
+  S.gender = gender;
+  S.marital = marital;
+  S.income = income;
+  S.children = children;
+  S.political = political;
+  S.years = years;
+  S.screen = 'question';
+  S.areaIdx = 0;
+  S.stageGuess = 2;
+  S.direction = null;
+  S.results = {};
+  S.history = [];
+  render();
+}
+
+function handleChoice(choice) {
+  S.history.push({areaIdx:S.areaIdx,stageGuess:S.stageGuess,direction:S.direction});
+  if (choice==='yes') {
+    if (S.stageGuess===5 || S.direction==='down') { finalizeArea(S.stageGuess); }
+    else { S.direction='up'; S.stageGuess=Math.min(5,S.stageGuess+1); render(); }
+  } else if (choice==='kinda') {
+    if (S.direction==='up') { finalizeArea(S.stageGuess-1); }
+    else if (S.direction==='down') { finalizeArea(S.stageGuess); }
+    else { S.direction='down'; S.stageGuess=Math.max(1,S.stageGuess-1); render(); }
+  } else {
+    if (S.stageGuess===1 || S.direction==='up') { finalizeArea(Math.max(1,S.stageGuess-1)); }
+    else { S.direction='down'; S.stageGuess=Math.max(1,S.stageGuess-1); render(); }
+  }
+}
+
+function finalizeArea(stage) {
+  const area = AREAS[S.areaIdx];
+  S.results[area.id] = Math.max(1,Math.min(5,stage));
+  if (S.areaIdx < AREAS.length-1) {
+    S.areaIdx++;
+    S.stageGuess = 2;
+    S.direction = null;
+    S.screen = 'question';
+    render();
+  } else {
+    S.screen = 'godme';
+    S.godQIdx = 0;
+    S.godView = null;
+    S.godScores = { distant:0, judge:0, micromanager:0, loving:0 };
+    S.godAnswers = [];
+    render();
+  }
+}
+
+function editArea(idx) {
+  S.areaIdx = idx;
+  S.stageGuess = S.results[AREAS[idx].id] || 2;
+  S.direction = null;
+  S.history = [];
+  S.screen = 'question';
+  render();
+}
+
+function goBack() {
+  if (!S.history.length) return;
+  const p = S.history.pop();
+  S.areaIdx=p.areaIdx; S.stageGuess=p.stageGuess; S.direction=p.direction;
+  S.screen='question'; render();
+}
+
+async function submitResults() {
+  const record = {
+    name: S.name||'Anonymous',
+    age: S.age||'',
+    gender: S.gender||'',
+    marital: S.marital||'',
+    income: S.income||'',
+    children: S.children||'',
+    political: S.political||'',
+    years: S.years||'',
+    date: new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}),
+    results: {...S.results},
+    godView: S.godView !== null ? GOD_VIEWS[S.godView].id : '',
+    godSecondary: (()=>{ const s=Object.entries(S.godScores).sort((a,b)=>b[1]-a[1]); return s[1]?.[0]||''; })()
+  };
+  S.screen='report';
+  render();
+  showToast('Saving results...');
+  await postToSheets(record);
+  showToast('Results saved!');
+}
+
+function restart() {
+  S = {screen:'intro',name:S.name,age:S.age,gender:S.gender,marital:S.marital,income:S.income,children:S.children,political:S.political,years:S.years,areaIdx:0,stageGuess:2,direction:null,results:{},history:[],godView:null,godQIdx:0,godScores:{distant:0,judge:0,micromanager:0,loving:0},godAnswers:[]};
+  render();
+}
+
+function showAdminGate() {
+  S.screen='admingate'; render();
+}
+
+function checkPass() {
+  const val = document.getElementById('passInput')?.value||'';
+  if (val===ADMIN_PASS) { S.screen='admin'; render(); }
+  else { showToast('Incorrect password'); }
+}
+
+async function exportCSV() {
+  const responses = await fetchFromSheets();
+  const headers = ['Name','Age','Gender','Marital Status','Household Income','Children Under 18','Political Lean','Years at Church','Date',...AREAS.map(a=>a.name),'Overall Avg','God & Me Primary','God & Me Secondary'];
+  const rows = responses.map(r => {
+    const vals = AREAS.map(a=>r.results[a.id]||0);
+    const avg = (vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(1);
+    const gv = r.godView ? (GOD_VIEWS.find(g=>g.id===r.godView)||{label:r.godView}).label : '';
+    const gv2 = r.godSecondary ? (GOD_VIEWS.find(g=>g.id===r.godSecondary)||{label:r.godSecondary}).label : '';
+    return [r.name||'Anonymous', r.age||'', r.gender||'', r.marital||'', r.income||'', r.children||'', r.political||'', r.years||'', r.date||'', ...vals, avg, gv, gv2];
+  });
+  const csv = [headers, ...rows].map(r=>r.map(v=>`"${v}"`).join(',')).join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download = 'cbc-discipleship-results.csv';
+  a.click();
+  showToast('CSV downloaded');
+}
+
+function copyReport() {
+  const name = S.name||'Your';
+  const lines = [`${name}'s Discipleship Snapshot — Chesterfield Baptist Church`, ''];
+  AREAS.forEach(a => {
+    const s = S.results[a.id];
+    lines.push(`${a.name}: Stage ${s} — ${STAGE_NAMES[s-1]}`);
+    lines.push(`  ${a.stages[s-1]}`);
+    lines.push('');
+  });
+  if (S.godView !== null) {
+    const gv = GOD_VIEWS[S.godView];
+    lines.push('God and Me: ' + gv.label);
+    lines.push('  "' + gv.subtitle + '"');
+    lines.push('');
+  }
+  navigator.clipboard.writeText(lines.join('\n')).then(()=>showToast('Copied to clipboard!'));
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+render();
+</script>
+</body>
+</html>
